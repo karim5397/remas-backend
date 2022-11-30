@@ -1,0 +1,140 @@
+.direction{
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+.text-dir{
+    text-align: right !important;
+    background-size: cover;
+}
+
+.section-dir{
+    direction: rtl !important;
+    
+}
+.blog-categories li{
+    border-bottom:1px solid ;
+    padding:10px 5px;
+    width:100%;
+    height:100%;
+    transition:0.6s;
+}
+
+.blog-categories li:hover  {
+    padding-right:10px;
+    background-color:#a48234 !important;
+    transition:0.6s;
+}
+.blog-categories li:hover a ,.blog-categories li:hover a i{
+    color:#fff !important;
+
+}
+
+.widget{
+    border:1px #cfcfcf solid;
+    padding:10px;
+    box-shadow:0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+}
+.btn-primary{
+    background-color:#a48234 !important;
+    border:none !important;
+}
+.btn-primary:hover{
+    background-color: rgb(224, 173, 52) !important;
+    border-color: #a48234 !important;
+    color: #ffffff !important;
+}
+i{
+    color:#a48234 !important;
+}
+.back-to-top i{
+    color:#fff !important;
+}
+
+.carousel.slide{
+    height:700px;
+}
+.carousel.slide .carousel-inner{
+    max-height:100%;
+}
+.title-heading{
+    background-color:#a482341f ;
+    width: fit-content;
+    margin: auto;
+    padding: 30px;
+}
+.title-heading .display-3{
+    padding: 30px 0px !important;
+}
+.section-title .title{
+    position:relative !important;
+    margin: auto;
+    width: fit-content;
+    padding: 30px 0;
+
+}
+.section-title .title::before{
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: 45px;
+    left: -80px;
+    width: 70px;
+    height: 3px;
+    background-color: #a48234;
+}
+.section-title .title::after{
+    content: '';
+    position: absolute;
+    display: block;
+    bottom: 60px;
+    left: -60px;
+    width: 50px;
+    height: 3px;
+    background-color: #a48234;
+}   
+.bg-overlay ,.carousel-item ,.bg-home{
+    max-height: 700px !important;
+}
+.home-slider{
+    height: 700px !important;
+    overflow: hidden;
+}
+.card.blog .image{
+    height:230px !important;
+    width:100% !important;
+}
+.social-icons .social-links{
+    padding: 10px;
+    border-radius: 10px;
+}
+.social-icons .social-links:hover{
+    background-color: #a48234;
+    border-radius: 10px;
+    transition: 0.6s;
+}
+.social-icons .social-links:hover i{
+    color: #000 !important;
+
+}   
+.address-box{
+    border: 1px solid #a48234 !important;
+    padding: 15px !important;
+}
+.address-box:hover{
+    background-color: #a48234 !important;
+    transition: 0.6s !important;
+    color: #252525 !important;
+}
+.address-box:hover i{
+    color: #252525 !important;
+}
+
+.certifcates{
+    box-shadow:0 12px 20px 0 rgb(0 0 0 / 13%), 0 2px 4px 0 rgb(0 0 0 / 12%);
+}
+
+.branch-title{
+    background-color: #a48234;
+    border-radius: 10px;
+}
