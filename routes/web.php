@@ -1,32 +1,21 @@
 <?php
 
-use Carbon\Carbon;
-use App\Models\Video;
-use App\Models\Download;
-use App\Http\Controllers\Investment;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\NewsController;
-use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\VideoController;
 use App\Http\Controllers\BannerController;
-use App\Http\Controllers\CareerController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\ChairmanController;
 use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\InvestmentController;
-use App\Http\Controllers\StatisticsController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\BusinessLinesController;
 use App\Http\Controllers\frontend\IndexController;
 
 /*
@@ -39,7 +28,6 @@ use App\Http\Controllers\frontend\IndexController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 //start frontend routes
 

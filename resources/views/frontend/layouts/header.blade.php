@@ -34,11 +34,11 @@
                 <li class="has-submenu parent-parent-menu-item">
                     <a href="javascript:void(0)">اداره علاقات المستثمرين <i class="fa-solid fa-angle-down"></i></a><span class="menu-arrow" style="display: none;"></span>
                     <ul class="submenu">
-                        <li><a href="#" class="sub-menu-item"> بيانات الاسهم</a></li>
-                        <li><a href="#" class="sub-menu-item">قرارات مجلس الاداره</a></li>
-                        <li><a href="#" class="sub-menu-item"> قرارات الجمعيه العموميه</a></li>
+                        <li><a href="{{route('share')}}" class="sub-menu-item"> بيانات الاسهم</a></li>
+                        <li><a href="{{route('director')}}" class="sub-menu-item">قرارات مجلس الاداره</a></li>
+                        <li><a href="{{route('decision')}}" class="sub-menu-item"> قرارات الجمعيه العموميه</a></li>
                         <li><a href="{{route('finance')}}" class="sub-menu-item"> القوائم الماليه</a></li>
-                        <li><a href="#" class="sub-menu-item"> تقارير  الافصاح</a></li>
+                        <li><a href="{{route('disclosure')}}" class="sub-menu-item"> تقارير  الافصاح</a></li>
                     </ul>
                         
                 </li>
