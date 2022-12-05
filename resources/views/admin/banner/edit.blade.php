@@ -1,120 +1,91 @@
 @extends('admin.layout.admin_master')
 @section('content')
-<!--begin::Content-->
-<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
-    <div class="toolbar" id="kt_toolbar">
 
-        <!--begin::Container-->
-        <div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
-            <div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
-                <h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Edit Banner</h1>
-                <span class="h-20px border-gray-300 border-start mx-4"></span>
-                <ul class="breadcrumb breadcrumb-separatorless fw-bold fs-7 my-1">
-                    <li class="breadcrumb-item text-muted">
-                        <a href="{{route('dashboard')}}" class="text-muted text-hover-primary">Dashboard</a>
-                    </li>
-                    <li class="breadcrumb-item">
-                        <span class="bullet bg-gray-300 w-5px h-2px"></span>
-                    </li>
-                    <li class="breadcrumb-item text-muted">Banners Management</li>
-                    <li class="breadcrumb-item">
-                        <span class="bullet bg-gray-300 w-5px h-2px"></span>
-                    </li>
-                    <li class="breadcrumb-item text-dark">Edit Banner</li>
-
-                </ul>
+<div class="content">
+    <!-- BEGIN: Top Bar -->
+    <div class="top-bar">
+        <!-- BEGIN: Breadcrumb -->
+        <nav aria-label="breadcrumb" class="-intro-x mr-auto hidden sm:flex">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('dashboard')}}">Dashboard</a></li>
+                <li class="breadcrumb-item " aria-current="page">Banners</li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Banner</li>
+            </ol>
+        </nav>
+        <div class="intro-x dropdown w-8 h-8">
+            <div class="w-8 h-8 rounded-full overflow-hidden shadow-lg  zoom-in text-center">
+                <a href="{{route('user.logout')}}" title="Logout"><i class="fa-solid fa-right-from-bracket mt-2"></i></a>
             </div>
         </div>
-        <!--end::Container-->
-
     </div>
-    <div class="post d-flex flex-column-fluid" id="kt_post">
-        <div id="kt_content_container" class="container-xxl">
+    <!-- END: Top Bar -->
+    <div class="intro-y flex flex-col sm:flex-row items-center mt-8">
+        <h2 class="text-lg font-medium mr-auto">
+            Edit Banner
+        </h2>
+        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
+            <a href="{{URL::previous()}}" class="btn btn-primary shadow-md mr-2"><i class="fa fa-arrow-right mr-2"></i> Go Back</a>
+        </div>
+    </div>
 
-            <div class="card">
-                <!-- error  -->
-                       @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li >{{$error}}</li>
-                                    @endforeach
-
-                                </ul>
-                            </div>
-                        @endif
-               <!-- error  -->
-                <div class="card-body py-4">
-
-                    <div class="form-group">
+    <div class="grid grid-cols-12 gap-6 mt-5">
+        <div class="intro-y col-span-12 lg:col-span-12">
+            <!-- BEGIN: Form Validation -->
+            <div class="intro-y box">
+                <div  class="p-5">
+                    <div class="preview">
+                        <!-- BEGIN: Validation Form -->
                         <form action="{{route('banner.update',$banner->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
-                            <div class="row">
-                                <div class="col-lg-12 col-md-6 col-sm-12">
-                                    <label class="form-label">Title</label>
-                                    <input type="text" class="form-control my-3" name="title" value="{{$banner->title}}">
-                                    @error('title')
-                                        <p class="text-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <label class="form-label">Typed Word</label>
-                                    <input type="text" class="form-control my-3" name="typed_word" value="{{$banner->typed_word}}">
-                                    @error('typed_word')
-                                        <p class="text-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <label class="form-label">Status</label>
-                                    <select class="form-control show-tick my-3" name="status">
-                                        <option value="">-- Status --</option>
-                                        <option value="active" {{$banner->status == 'active' ? 'selected' : ''}}>Active</option>
-                                        <option value="inactive" {{$banner->status == 'inactive' ? 'selected' : ''}}>Inactive</option>
-                                    </select>
-                                    @error('status')
-                                        <p class="text-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-12 col-md-6 col-sm-12">
-                                    <label class="form-label">Description</label>
-                                    <textarea class="form-control tinymce-editor my-3" name="description" >{{$banner->description}}</textarea>
-                                    @error('description')
-                                        <p class="text-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <label class="form-label">Photo</label>
-                                    <input type="hidden" class="form-control my-3" name="old_photo" value="{{$banner->photo}}">
-                                    <input type="file" class="form-control my-3" name="photo" value="{{$banner->photo}}">
-                                    @error('photo')
-                                        <p class="text-danger">{{$message}}</p>
-                                    @enderror
-                                </div>
-                                <div class="m-auto mt-5">
-
-                                    <img src="{{asset($banner->photo)}}" alt="" title="{{$banner->photo}}" class="m-2" style="width: 300px; height:300px; border:2px solid gray;">
-                                </div>
-
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-success w-100">Update</button>
-                                </div>
+                            <div class="input-form">
+                                <label  class="form-label w-full flex flex-col sm:flex-row">Banner Title * </label>
+                                <input type="text" class="form-control" name="title"  value="{{$banner->title}}" required>
+                                @error('title')
+                                    <p class="text-danger">{{$message}}</p>
+                                @enderror
                             </div>
+                            <div class="input-form">
+                                <label  class="form-label w-full flex flex-col sm:flex-row">Banner Description </label>
+                                <textarea  class="form-control tinymce-editor" name="description">{{$banner->description}}</textarea>
+                                @error('description')
+                                    <p class="text-danger">{{$message}}</p>
+                                @enderror
+                            </div>
+                            <div class="input-form mt-3">
+                                <label  class="form-label w-full flex flex-col sm:flex-row"> Status * </label>
+                                <select class="form-select" name="status">
+                                    <option value="">-- Status --</option>
+                                    <option value="active" {{$banner->status == 'active' ? 'selected' : ''}}>Active</option>
+                                    <option value="inactive" {{$banner->status == 'inactive' ? 'selected' : ''}}>Inactive</option>
+                                </select>
+                                @error('status')
+                                    <p class="text-danger">{{$message}}</p>
+                                @enderror
+                            </div>
+                           
+                            <div class="input-form mt-3 has-success">
+                                <label  class="form-label w-full flex flex-col sm:flex-row"> Photo * </label>
+                                <input type="hidden" class="form-control" name="old_photo" value="{{$banner->photo}}">
+                                <input class="form-control-file border w-full p-2" type="file" name="photo" value="{{$banner->photo}}">
+                                @error('photo')
+                                    <p class="text-danger">{{$message}}</p>
+                                @enderror
+                            </div>
+                            <div class="m-auto mt-5">
+
+                                <img src="{{asset($banner->photo)}}" alt="" title="{{$banner->photo}}" class="m-2" style="width: 300px; height:300px; border:2px solid gray; border-radius: 10px;">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary mt-5">Update </button>
                         </form>
+                        <!-- END: Validation Form -->
                     </div>
-
                 </div>
-
-                <!--end::Card body-->
             </div>
-            <!--end::Card-->
+            <!-- END: Form Validation -->
         </div>
-        <!--end::Container-->
     </div>
-    <!--end::Post-->
 </div>
-<!--end::Content-->
 @endsection
-@section('script')
 
-@endsection

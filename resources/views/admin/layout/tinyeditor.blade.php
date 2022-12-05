@@ -1,6 +1,6 @@
 
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.1.0/tinymce.min.js" referrerpolicy="origin"></script> --}}
-<script src="{{asset('backend/assets/plugins/custom/tinymce/tinymce.bundle.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.1.0/tinymce.min.js" referrerpolicy="origin"></script>
+{{-- <script src="{{asset('backend/assets/plugins/custom/tinymce/tinymce.bundle.js')}}"></script> --}}
 
 <script>
     var editor_config = {
@@ -35,7 +35,7 @@
 <style>
 
 .tox.tox-tinymce{
-    height: 200px !important;
+    height: 300px !important;
 }
     .tox-statusbar__branding{
         display: none;

@@ -23,6 +23,7 @@
 <script>
     @if (Illuminate\Support\Facades\Session::has('success'))
         $.notify("{{session()->get('success')}}", {
+            type:'success',
             animate: {
                 enter: 'animated fadeInRight',
                 exit: 'animated fadeOutRight'
@@ -34,6 +35,7 @@
     @endphp
     @if (Illuminate\Support\Facades\Session::has('error'))
         $.notify("{{session()->get('error')}}", {
+            type:'danger',
             animate: {
                 enter: 'animated fadeInRight',
                 exit: 'animated fadeOutRight'

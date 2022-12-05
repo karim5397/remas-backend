@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('email');
             $table->string('company_name');
             $table->string('phone');
-            $table->string('position');
             $table->string('subject');
             $table->longText('message')->nullable();
             $table->timestamps();

@@ -16,25 +16,22 @@ class BannerSeederTable extends Seeder
     public function run()
     {
         Banner::create([
-            'title' => 'Industrial Project Solutions',
-            'typed_word' => 'We are Creating new World for You.", "We are Creating new World for You.',
+            'title' => 'تشكيله رائعه من المنتجات',
             'status' => 'active',
-            'description' => 'Innovation Starts With Big  Dream',
-            'photo' => 'backend/assets/images/banners/banner1.jpg',
+            'description' => 'لدينا افضل انواع السيراميك و البورسلين التى تنافس  فى الاسواق العالميه',
+            'photo' => 'frontend/assets/images/bg/banner1.jpg',
         ]);
         Banner::create([
-            'title' => 'Industrial Project Solutions',
-            'typed_word' => 'We are Creating new World for You.", "We are Creating new World for You.',
+            'title' => 'تشكيله رائعه من المنتجات',
             'status' => 'active',
-            'description' => 'Innovation Starts With Big  Dream',
-            'photo' => 'backend/assets/images/banners/banner2.jpg',
+            'description' => 'لدينا افضل انواع السيراميك و البورسلين التى تنافس  فى الاسواق العالميه',
+            'photo' => 'frontend/assets/images/bg/banner2.jpg',
         ]);
         Banner::create([
-            'title' => 'Industrial Project Solutions',
-            'typed_word' => 'We are Creating new World for You.", "We are Creating new World for You.',
+            'title' => 'تشكيله رائعه من المنتجات',
             'status' => 'active',
-            'description' => 'Innovation Starts With Big  Dream',
-            'photo' => 'backend/assets/images/banners/banner3.jpg',
+            'description' => 'لدينا افضل انواع السيراميك و البورسلين التى تنافس  فى الاسواق العالميه',
+            'photo' => 'frontend/assets/images/bg/banner7.jpg',
         ]);
     }
 }

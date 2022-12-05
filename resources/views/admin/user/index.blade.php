@@ -3,6 +3,7 @@
 <div class="content">
     <!-- BEGIN: Top Bar -->
     <div class="top-bar">
+        {{-- @include('admin.layout.notification') --}}
         <!-- BEGIN: Breadcrumb -->
         <nav aria-label="breadcrumb" class="-intro-x mr-auto hidden sm:flex">
             <ol class="breadcrumb">
@@ -72,7 +73,6 @@
                                 <td>{{$user->first_name}} {{$user->last_name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td class="status">
-                                    {{-- <input id="status-btn" type="checkbox" name="toogle" value="{{$user->id}}" {{$user->status == 'active' ? 'checked' : ''}} data-toggle="toggle" data-on="مفعل" data-off="غير مفعل" data-onstyle="success" data-offstyle="danger"  data-size="sm"> --}}
                                     <div class="form-check form-switch w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0">
                                         <input id="status-btn" type="checkbox" name="toogle" value="{{$user->id}}" {{$user->status == 'active' ? 'checked' : ''}}  class="form-check-input mr-0 ml-3"  >
                                     </div>
@@ -109,3 +109,32 @@
 @endsection
 
 
+
+@section('script')
+    {{-- change status --}}
+<script>
+    $('#status-btn').change(function(){
+        var mode = $(this).prop('checked');
+        var id = $(this).val();
+        $.ajax({
+            url:"{{route('user.status')}}",
+            type:'POST',
+            data:{
+                _token:'{{csrf_token()}}',
+                mode:mode,
+                id:id,
+            },
+            success:function(response){
+                if(response.status){
+                    swal("The status change successfully", {
+                        icon: "success",
+                        buttons:'ok'
+                        });
+                }else{
+                    alert('please try again')
+                }
+            }
+        })
+    })
+</script>
+@endsection

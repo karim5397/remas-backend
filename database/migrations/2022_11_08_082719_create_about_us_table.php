@@ -17,10 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->longText('vision_desc');
-            $table->longText('mission_desc');
-            $table->longText('value_desc');
+            $table->longText('mission')->nullable();
+            $table->longText('vision')->nullable();
             $table->string('photo');
+            $table->string('photo_alt')->nullable();
             $table->longText('meta_description')->nullable();
             $table->string('meta_auth')->nullable();
             $table->string('meta_title')->nullable();

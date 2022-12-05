@@ -9,7 +9,7 @@ class Setting extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'page_title',
+        'page_title', 
         'meta_description',
         'meta_auth',
         'meta_title',
@@ -17,17 +17,13 @@ class Setting extends Model
         'news_meta_description',
         'news_meta_auth',
         'news_meta_title',
-        'projects_page_title',
-        'projects_meta_description',
-        'projects_meta_auth',
-        'projects_meta_title',
-        'videos_page_title',
-        'videos_meta_description',
-        'videos_meta_auth',
-        'videos_meta_title',
+        'contact_page_title',
+        'contact_meta_description',
+        'contact_meta_auth',
+        'contact_meta_title',
         'logo',
         'favicon',
         'facebook_url',
-        'linkedin_url',
+        'instagram_url',
     ];
 }

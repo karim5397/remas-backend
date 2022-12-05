@@ -25,6 +25,7 @@
         
         <!-- BEGIN: JS Assets-->
         @include('admin.layout.script')
+        @include('admin.layout.tinyeditor')
         <!-- END: JS Assets-->
     </body>
 </html>

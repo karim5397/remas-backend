@@ -25,20 +25,15 @@ return new class extends Migration
             $table->string('news_meta_auth')->nullable();
             $table->string('news_meta_title')->nullable();
 
-            $table->string('projects_page_title');
-            $table->longText('projects_meta_description')->nullable();
-            $table->string('projects_meta_auth')->nullable();
-            $table->string('projects_meta_title')->nullable();
-
-            $table->string('videos_page_title');
-            $table->longText('videos_meta_description')->nullable();
-            $table->string('videos_meta_auth')->nullable();
-            $table->string('videos_meta_title')->nullable();
+            $table->string('contact_page_title');
+            $table->longText('contact_meta_description')->nullable();
+            $table->string('contact_meta_auth')->nullable();
+            $table->string('contact_meta_title')->nullable();
 
             $table->string('logo');
             $table->string('favicon');
             $table->string('facebook_url')->nullable();
-            $table->string('linkedin_url')->nullable();
+            $table->string('instagram_url')->nullable();
             $table->timestamps();
         });
     }

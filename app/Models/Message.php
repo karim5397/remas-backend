@@ -13,7 +13,6 @@ class Message extends Model
         'email',
         'company_name',
         'phone',
-        'position',
         'subject',
         'message',
     ];

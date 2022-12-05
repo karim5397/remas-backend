@@ -17,46 +17,52 @@ class NewsSeederTable extends Seeder
     public function run()
     {
         News::create([
-            'title' => 'Industrial Project Solutions',
+            'title' => 'نتائج أعمال الربع الثالث من عام ٢٠٢٢',
             'status' => 'active',
             'date' => Carbon::now()->format('Y-m-d'),
-            'description' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation. AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation.',
-            'photo' => 'backend/assets/images/news/blog-1.jpg',
+            'description' => 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
+            'photo' => 'frontend/assets/images/news/news1.jpg',
+            'page_title' => 'ريماس | احدث الاخبار',
         ]);
         News::create([
-            'title' => 'Industrial Project Solutions',
+            'title' => 'نتائج أعمال الربع الثالث من عام ٢٠٢٢',
             'status' => 'active',
             'date' => Carbon::now()->format('Y-m-d'),
-            'description' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation. AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation.',
-            'photo' => 'backend/assets/images/news/blog-1.jpg',
+            'description' => 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
+            'photo' => 'frontend/assets/images/news/news2.png',
+            'page_title' => 'ريماس | احدث الاخبار',
         ]);
         News::create([
-            'title' => 'Industrial Project Solutions',
+            'title' => 'نتائج أعمال الربع الثالث من عام ٢٠٢٢',
             'status' => 'active',
             'date' => Carbon::now()->format('Y-m-d'),
-            'description' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation. AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation.',
-            'photo' => 'backend/assets/images/news/blog-1.jpg',
+            'description' => 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
+            'photo' => 'frontend/assets/images/news/news3.jpg',
+            'page_title' => 'ريماس | احدث الاخبار',
         ]);
         News::create([
-            'title' => 'Industrial Project Solutions',
+            'title' => 'نتائج أعمال الربع الثالث من عام ٢٠٢٢',
             'status' => 'active',
             'date' => Carbon::now()->format('Y-m-d'),
-            'description' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation. AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation.',
-            'photo' => 'backend/assets/images/news/blog-1.jpg',
+            'description' => 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
+            'photo' => 'frontend/assets/images/news/news4.jpg',
+            'page_title' => 'ريماس | احدث الاخبار',
         ]);
         News::create([
-            'title' => 'Industrial Project Solutions',
+            'title' => 'نتائج أعمال الربع الثالث من عام ٢٠٢٢',
             'status' => 'active',
             'date' => Carbon::now()->format('Y-m-d'),
-            'description' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation. AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation.',
-            'photo' => 'backend/assets/images/news/blog-1.jpg',
+            'description' => 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
+            'photo' => 'frontend/assets/images/news/news1.jpg',
+            'page_title' => 'ريماس | احدث الاخبار',
         ]);
         News::create([
-            'title' => 'Industrial Project Solutions',
+            'title' => 'نتائج أعمال الربع الثالث من عام ٢٠٢٢',
             'status' => 'active',
             'date' => Carbon::now()->format('Y-m-d'),
-            'description' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation. AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation.',
-            'photo' => 'backend/assets/images/news/blog-1.jpg',
+            'description' => 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها',
+            'photo' => 'frontend/assets/images/news/news2.png',
+            'page_title' => 'ريماس | احدث الاخبار',
         ]);
     }
 }

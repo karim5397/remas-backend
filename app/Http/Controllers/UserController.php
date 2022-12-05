@@ -113,7 +113,9 @@ class UserController extends Controller
             if($user){
                 $old_image=$user->photo;
                 $user->delete();
-                unlink($old_image);
+                if($old_image != null){
+                    unlink($old_image);
+                }
                return redirect()->route('user.index')->with('success' , 'The user is deleted');
             }else{
                 return back()->with('error' , 'Something Went Wrong');

@@ -11,10 +11,10 @@ class AboutUs extends Model
     protected $fillable=[
         'title',
         'description',
-        'vision_desc',
-        'mission_desc',
-        'value_desc',
         'photo',
+        'photo_alt',
+        'mission',
+        'vision',
         'meta_description',
         'meta_auth',
         'meta_title',

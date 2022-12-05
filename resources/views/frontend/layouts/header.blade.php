@@ -2,7 +2,7 @@
    <header id="topnav" class="defaultscroll sticky direction">
     <div class="container">
         <!-- Logo container-->
-        <a class="logo" href="#">
+        <a class="logo" href="{{route('home')}}">
             <span class="logo-light-mode">
                 <img src="{{asset('frontend/assets/images/logo.png')}}" style="width:200px; height:80px">
             </span>
@@ -28,36 +28,30 @@
             <!-- Navigation Menu-->
             <ul class="navigation-menu m-auto nav-light">
                 <li class="has-submenu parent-parent-menu-item">
-                    <a href="javascript:void(0)">عن الشركه</a>
+                    <a href="{{route('about')}}">عن الشركه</a>
                 </li>
             
                 <li class="has-submenu parent-parent-menu-item">
                     <a href="javascript:void(0)">اداره علاقات المستثمرين <i class="fa-solid fa-angle-down"></i></a><span class="menu-arrow" style="display: none;"></span>
                     <ul class="submenu">
-                        <li><a href="#" class="sub-menu-item">نظرة عامة</a></li>
-                        <li><a href="#" class="sub-menu-item">القدرة التنافسية والإستراتيجية</a></li>
-                        <li><a href="#" class="sub-menu-item">القوائم الماليه</a></li>
-                        <li><a href="#" class="sub-menu-item"> تقارير سنوية</a></li>
-                        <li><a href="#" class="sub-menu-item"> نشرات إخبارية</a></li>
-                        <li><a href="#" class="sub-menu-item"> تقارير أداء</a></li>
-                        <li><a href="#" class="sub-menu-item"> تقارير مالية</a></li>
-                        <li><a href="#" class="sub-menu-item"> بيانات التداول</a></li>
-                        <li><a href="#" class="sub-menu-item"> القيادات التنفيذية</a></li>
-                        <li><a href="#" class="sub-menu-item"> مجلس الإداره</a></li>
-                        <li><a href="#" class="sub-menu-item"> بيانات الإفصاح وإجتماعات الجمعية العامة ومجالس الإدارة</a></li>
+                        <li><a href="#" class="sub-menu-item"> بيانات الاسهم</a></li>
+                        <li><a href="#" class="sub-menu-item">قرارات مجلس الاداره</a></li>
+                        <li><a href="#" class="sub-menu-item"> قرارات الجمعيه العموميه</a></li>
+                        <li><a href="{{route('finance')}}" class="sub-menu-item"> القوائم الماليه</a></li>
+                        <li><a href="#" class="sub-menu-item"> تقارير  الافصاح</a></li>
                     </ul>
                         
                 </li>
 
                 <li class="has-submenu parent-parent-menu-item">
-                    <a href="javascript:void(0)">طلبات و استفسارات</a>
+                    <a href="{{route('inquery')}}">طلبات و استفسارات</a>
                 </li>
 
                 <li class="has-submenu parent-parent-menu-item">
-                    <a href="javascript:void(0)">الشهادات</a>
+                    <a href="{{route('certificate')}}">الشهادات</a>
                 </li>
 
-                <li><a href="#" class="sub-menu-item">فروع الشركه</a></li>
+                <li><a href="{{route('contact')}}" class="sub-menu-item">فروع الشركه</a></li>
                 <li>
                     <ul class="buy-button list-inline mb-0">
                         <li class="list-inline-item search-icon mb-0">

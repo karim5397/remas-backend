@@ -1,206 +1,54 @@
 @extends('frontend.layouts.master')
+{{-- SEO TAGS --}}
+@section('page_title', get_setting('contact_page_title'))
+@section('meta_title', get_setting('contact_meta_title'))
+@section('meta_auth', get_setting('contact_meta_auth'))
+@section('meta_description', strip_tags(get_setting('contact_meta_description')))
+{{-- SEO TAGS --}}
 @section('content')
-<!-- Start Page Banner Section -->
-<section class="banner-section service-one">
-    <div class="d-table">
-        <div class="d-tablecell">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="page-title">
-                            <h2>Contact us</h2>
-                            <ul>
-                                <li><a href="{{route('home')}}">home <i class="flaticon-right"></i> </a></li>
-                                <li>Contact us</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+ <!-- Hero Start -->
+ <section class="bg-half-170 d-table w-100" style="background: url('{{asset('frontend/assets/images/bg/banner11.jpg')}}') center;">
+    <div class="bg-overlay bg-gradient-overlay"></div>
+    <div class="container">
+        <div class="position-middle-bottom">
+            <div class="title-heading text-center">
+                <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark"> فروع الشركه</h5>
             </div>
         </div>
-    </div>
-</section>
-<!-- End Page Banner Section -->
-<!-- Start Contact Section -->
-   <section class="contact-section pt-5">
+    </div><!--end container-->
+</section><!--end section-->
+<!-- Hero End -->
+
+<!-- Start -->
+<section class="section pb-0 mb-5">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="Form-contact">
-                    <div class="section-title-left">
-                        <h4>Message us</h4>
-                        <h2><span>Send us</span> message for any query</h2>
+        <div class="direction">
+            @foreach ($contacts as $contact)
+                <div class="address mt-5">
+                    <div class="branch-title mb-5 ">
+                        <h4 class="p-2 text-white" style="font-weight: 900;">{{$contact->title}}</h4>
                     </div>
-
-                    <form id="contactForm" action="{{route('message')}}" method="POST">
-                        @csrf
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" name="name" id="name" class="form-control" required data-error="Please enter your name" placeholder="Your Name">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="email" name="email" id="email" class="form-control" required data-error="Please enter your email" placeholder="Your Email">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" name="company_name" id="company_name" required data-error="Please enter your company name" class="form-control" placeholder="Your company name">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" name="position" id="position" required data-error="Please enter your position" class="form-control" placeholder="Your position">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" name="phone" id="phone" required data-error="Please enter your number" class="form-control" placeholder="Your Phone">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-6 col-sm-6">
-                                <div class="form-group">
-                                    <input type="text" name="subject" id="subject" class="form-control" required data-error="Please enter your subject" placeholder="Your Subject">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <textarea name="message" class="form-control textarea-hight" id="message" cols="30" rows="5"  data-error="Write your message" placeholder="Your Message"></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group pl-1">
-                                    <div class="g-recaptcha" data-sitekey="6Lf9HCcjAAAAAIdQjkU9-o5yPo_QYl2DYaAhYkYz"></div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <button type="submit" class="default-btn btn-two">
-                                    Send Message
-                                </button>
-                                <div id="msgSubmit" class="h3 text-center hidden"></div>
-                                <div class="clearfix"></div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Contact Section -->
-
-
-<!-- Start Get in Touch Section -->
-<div class="get-in-touch-section pt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="get-in-touch-wrapper">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6">
-                            <div class="contact-wrapper">
-                                <h3>Head Office</h3>
-                                <ul class="contact-info">
-                                    <li>
-                                        <i class="flaticon-telephone-handle-silhouette"></i>
-                                        <a href="tel:{{$contact->head_phone}}">Call us {{$contact->head_phone}}</a>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-mail-black-envelope-symbol"></i>
-                                        <a href="mailto:{{$contact->head_email}}">{{$contact->head_email}}</a>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-clock-of-circular-shape-outline"></i>
-                                        Open Hours {{$contact->head_openinig_time}}
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i>
-                                        {{$contact->head_address}}
-                                    </li>
+                    <div class="row mx-2" style="background-color: #a482341f;">
+                        <div class="col-md-6">
+                            <div class="branch-details p-2">
+                                <ul class="d-flex flex-column list-unstyled gap-3 mt-4">
+                                    <li><span><strong><i class="fa fa-phone"></i> الهاتف: </strong> {{$contact->phone}}</span></li>
+                                    <li><span><strong><i class="fa-regular fa-envelope"></i> البريد الالكترونى: </strong> {{$contact->email}}</span></li>
+                                    <li><span><strong><i class="fa-solid fa-location-dot"></i> العنوان: </strong>{{$contact->address}}</span></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-md-6">
-                            <div class="contact-wrapper">
-                                <h3>Branch one</h3>
-                                <ul class="contact-info">
-                                    <li>
-                                        <i class="flaticon-telephone-handle-silhouette"></i>
-                                        <a href="tel:{{$contact->branch_phone}}">Call us {{$contact->branch_phone}}</a>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-mail-black-envelope-symbol"></i>
-                                        <a href="mailto:{{$contact->branch_email}}">{{$contact->branch_email}}</a>
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-clock-of-circular-shape-outline"></i>
-                                        Open Hours {{$contact->branch_opening_time}}
-                                    </li>
-                                    <li>
-                                        <i class="flaticon-facebook-placeholder-for-locate-places-on-maps"></i>
-                                        {{$contact->branch_address}}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                        <div class="col-md-6">
+                            <iframe src="{{$contact->map_url}}" style="border:0; width: 100%; height: 200px;" allowfullscreen></iframe>
 
+                        </div>
                     </div>
-                </div>
-            </div>
+                </div>    
+            @endforeach
         </div>
     </div>
-</div>
-<!-- End Get in Touch Section -->
 
-
-
+    
+</section><!--end section-->
 <!-- End -->
-
-
-
-<!-- Subscribe -->
-<div class="submit-section">
-    <form id="contactForm" novalidate="true">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <label>name</label>
-                        <input type="text" class="form-control" required="" data-error="Please enter your name here" placeholder="Enter Your  Name">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <label>Enter Address</label>
-                        <input type="email" class="form-control" required="" data-error="Please enter your email" placeholder="Enter Your Email Address">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="text-center">
-                        <button type="submit" class="default-btn disabled" style="pointer-events: all; cursor: pointer;">
-                            subscribe
-                            <i class="flaticon-right-arrow"></i>
-                        </button>
-                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
 @endsection

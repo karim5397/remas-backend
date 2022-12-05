@@ -3,44 +3,43 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Models\News;
-use App\Models\Team;
-use App\Models\Video;
+
 use App\Models\Banner;
-use App\Models\Career;
 use App\Models\AboutUs;
+use App\Models\Finance;
 use App\Models\Message;
-use App\Models\Project;
-use App\Models\Service;
-use App\Models\Setting;
-use App\Models\Chairman;
+use App\Models\Product;
+use App\Models\Decision;
+use App\Models\Director;
 use App\Models\Download;
 use App\Models\ContactUs;
-use App\Models\Statistics;
-use App\Models\ProjectType;
+use App\Models\Disclosure;
+use App\Models\Certificate;
 use Illuminate\Http\Request;
-use App\Models\BusinessLines;
-use App\Models\CareerApllies;
 use App\Http\Controllers\Controller;
+use App\Models\DetailsShare;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Session;
 
 class IndexController extends Controller
 {
     public function index()
     {
-        // $about=AboutUs::first();
-        // $statics=Statistics::orderBy('id','DESC')->get();
-        // $banners=Banner::limit(5)->get();
-        // $services=Service::orderBy('id','DESC')->get();
-        // $projects=Project::orderBy('id','DESC')->get();
-        // $business_lines=BusinessLines::orderBy('id','DESC')->get();
-        return view('frontend.index');
+        $about=AboutUs::first();
+        $banners=Banner::limit(3)->get();
+        $all_news=News::limit(3)->get();
+        $products=Product::latest()->limit(10)->get();
+        return view('frontend.index' ,compact('about' , 'banners','all_news' , 'products'));
     }
     public function contactUs()
     {
-        $contact=ContactUs::first();
-        return view('frontend.pages.contact' ,compact('contact'));
+        $contacts=ContactUs::get();
+        return view('frontend.pages.contact' ,compact('contacts'));
+    }
+    public function inquery()
+    {
+        return view('frontend.pages.inquery_contact_form');
     }
     public function clientMessage(Request $request)
     {
@@ -49,34 +48,41 @@ class IndexController extends Controller
             'email' => 'required|string',
             'company_name' => 'required|string',
             'phone' => 'required|string',
-            'position' => 'required|string',
             'subject' => 'required|string',
             'message' => 'nullable|string',
+        ],
+        [
+            'name.required' => 'ادخل الاسم',
+            'email.required' => 'ادخل البريد الالكترونى',
+            'company_name.required' => 'ادخل اسم الشركه',
+            'phone.required' => 'ادخل الهاتف',
+            'subject.required' => 'ادخل اسم الموضوع',
+            'message.sometimes' => 'ادخل الرساله',
         ]);
         $data=$request->all();
         $message=Message::create($data);
         if($message){
-            return back()->with('success' , 'message send successfully');
+            return back()->with('success' , 'تم ارسال الرساله بنجاح');
         }else{
-            return back()->with('error' , 'please try again');
+            return back()->with('error' , 'برجاء المحاوله مره اخرى');
         }
 
+    }
+    public function certificate()
+    {
+        $certificates=Certificate::get();
+        return view('frontend.pages.certificate' ,compact('certificates'));
     }
     public function aboutUs()
     {
         $about=AboutUs::first();
-        $team=Team::first();
-        return view('frontend.pages.about' ,compact('about','team'));
+        return view('frontend.pages.about' ,compact('about'));
     }
-    public function team()
-    {
-        $teams=Team::orderBy('id' , 'DESC')->limit(9)->get();
-        return view('frontend.pages.team' ,compact('teams'));
-    }
+  
     public function news()
     {
-        $news=News::orderBy('id' , 'DESC')->paginate(6);
-        return view('frontend.pages.news.news' ,compact('news'));
+        $all_news=News::orderBy('id' , 'DESC')->paginate(6);
+        return view('frontend.pages.news.news' ,compact('all_news'));
     }
     public function newsDetails($id)
     {
@@ -84,180 +90,127 @@ class IndexController extends Controller
         $latest_news=News::orderBy('id','DESC')->latest()->limit(4)->get();
         return view('frontend.pages.news.single_news' ,compact('news','latest_news'));
     }
-    public function career()
+
+    //investment part
+    //1)financial reports [القوائم الماليه]
+    public function finance()
     {
-        $careers=Career::where('status','active')->orderBy('id' , 'DESC')->paginate(8);
-        return view('frontend.pages.career.careers' ,compact('careers'));
-    }
-    public function careerDetails($id)
-    {
-        $career=Career::find($id);
-        return view('frontend.pages.career.career_details' ,compact('career'));
-    }
-    public function careerFilter(Request $request)
-    {
-        $careers=Career::query();
-        if(!empty($request->job_types)){
-            $job_types_array=$request->job_types;
-            $careers=$careers->where('status' , 'active')->whereIn('job_type' ,$job_types_array);
-
-        }
-
-        if(!empty($request->positions)){
-            $positions_array=$request->positions;
-            $careers=$careers->where('status' , 'active')->whereIn('position' ,$positions_array);
-
-        }
-
-        if(empty($request->job_types) && empty($request->positions)){
-            return redirect()->route('career');
-        }
-        Session::flash('job_types' , $request->job_types);
-        Session::flash('positions' , $request->positions);
-        $careers=$careers->where('status' , 'active')->orderBy('id' , 'DESC')->paginate(8);
-        return view('frontend.pages.career.careers' ,compact('careers'));
-
-
-
-    }
-    public function jobApplied(Request $request)
-    {
-         $this->validate($request,[
-            'cv' => 'required|mimes:csv,txt,xlx,xls,pdf',
-            'name' => 'required|string',
-            'email' => 'required|string',
-            'phone' => 'required|string',
-            'position' => 'required|string',
-            'message' => 'nullable|string',
-        ]);
-        if($request->hasFile('cv')){
-            $file_uniqi=hexdec(uniqid()).'.'.$request->cv->getClientOriginalExtension();
-            $path="backend/assets/cv/";
-            $file_name=$path.$file_uniqi;
-            $request->cv->move($path, $file_uniqi);
-        }
-        $data=$request->all();
-        $data['cv']=$file_name;
-        $applied=CareerApllies::create($data);
-        if($applied){
-            return back()->with('success' , 'You applied successfully');
-        }else{
-            return back()->with('error' , 'Please try again');
-        }
-
-    }
-    public function video()
-    {
-        $videos=Video::orderBy('id' , 'DESC')->paginate(6);
-        return view('frontend.pages.video',compact('videos'));
+        $finances=Finance::where('year' , Carbon::now()->format('Y'))->get();
+        Session::flash('year',Carbon::now()->format('Y'));
+        return view('frontend.pages.investment.financial_reports' ,compact('finances'));
     }
 
-    public function serviceDetails($id)
+    public function downloadFinanceFile($id)
     {
-        $service=Service::find($id);
-        return view('frontend.pages.service' , compact('service'));
-    }
-    public function businessDetails($id)
-    {
-        $business_line=BusinessLines::find($id);
-        $projects=Project::where(['status' => 'active' , 'business_id' => $id])->limit(6)->get();
-        return view('frontend.pages.business_line' , compact('business_line','projects'));
-    }
-
-    public function chairman()
-    {
-        $chairman=Chairman::first();
-        $about=AboutUs::first();
-        return view('frontend.pages.chairman' , compact('chairman','about'));
-    }
-
-    public function projects()
-    {
-        $projects=Project::where('status' , 'active')->orderBy('id' ,'DESC')->paginate(6);
-        $business_lines=BusinessLines::where('status','active')->get();
-        $project_types=ProjectType::get();
-        return view('frontend.pages.project.projects' , compact('projects','business_lines' ,'project_types'));
-    }
-    public function projectDetails($id)
-    {
-        $project=Project::find($id);
-        return view('frontend.pages.project.project_details' , compact('project'));
-    }
-    public function search(Request $request)
-    {
-        $projects=Project::query();
-        if(!empty($request->search)){
-            $projects=$projects->where('title' ,'LIKE','%'.$request->search.'%');
-        }
-        if(empty($request->search)){
-            return redirect()->route('projects');
-        }
-        $business_lines=BusinessLines::where('status','active')->get();
-        $project_types=ProjectType::get();
-        $projects=$projects->where('status' , 'active')->paginate(6);
-        Session::flash('search',$request->search);
-        return view('frontend.pages.project.projects' , compact('projects','business_lines' ,'project_types'));
-    }
-    public function projectFilter(Request $request)
-    {
-        $projects=Project::query();
-
-        if(!empty($request->business)){
-            $business_ids=$request->business;
-            $projects=$projects->where('status' , 'active')->whereIn('business_id' ,$business_ids);
-
-        }
-
-        if(!empty($request->country)){
-            $country_names=$request->country;
-            $projects=$projects->where('status' , 'active')->whereIn('country' ,$country_names);
-
-        }
-
-        if(!empty($request->type)){
-            $type_array=$request->type;
-            foreach($type_array as $value){
-                $item=$value;
-            }
-
-            $data=$projects->where('status' , 'active')->get();
-
-            $project_ids=[];
-            foreach($data as $value){
-                $type=explode(',',$value->type_id);
-                if(in_array($item ,$type)){
-                    $project_ids[]=$value->id;
-                }
-            }
-
-            $projects=$projects->where('status' , 'active')->whereIn('id',$project_ids);
-        }
-
-        if(empty($request->business) && empty($request->country) && empty($request->type)){
-            return redirect()->route('projects');
-        }
-        Session::flash('business' ,$request->business);
-        Session::flash('country' ,$request->country);
-        Session::flash('type' ,$request->type);
-        $projects=$projects->where('status' , 'active')->paginate(6);
-        $business_lines=BusinessLines::where('status','active')->get();
-        $project_types=ProjectType::get();
-        return view('frontend.pages.project.projects' , compact('projects','business_lines' ,'project_types'));
-    }
-
-
-    public function downloadPage()
-    {
-        $downloads=Download::get();
-        return view('frontend.pages.downloads',compact('downloads'));
-    }
-
-    public function downloadFile($id)
-    {
-        $file=Download::find($id);
-        $myFile = public_path($file->file);
+        $finance_file=Finance::find($id);
+        $myFile = public_path($finance_file->file);
         return response()->download($myFile);
     }
+
+    public function financeFilter(Request $request)
+    {
+        
+        if(!empty($request->year)){
+            $year=$request->year;
+            $finances=Finance::where('year' ,$year)->get();
+            Session::flash('year',$year);
+            return view('frontend.pages.investment.financial_reports' ,compact('finances'));
+        }else{
+            return redirect()->route('finance')->with('error' ,'برجاء اختيار فلتر');
+        }
+    }
+
+    //2)general assembly decisions [قرارات الجمعيه العموميه]
+    public function decision()
+    {
+        $decisions=Decision::where('year' , Carbon::now()->format('Y'))->get();
+        Session::flash('year',Carbon::now()->format('Y'));
+        return view('frontend.pages.investment.general_assembly_decisions' ,compact('decisions'));
+    }
+
+    public function downloadDecisionFile($id)
+    {
+        $decision_file=Decision::find($id);
+        $myFile = public_path($decision_file->file);
+        return response()->download($myFile);
+    }
+
+    public function decisionFilter(Request $request)
+    {
+        
+        if(!empty($request->year)){
+            $year=$request->year;
+            $decisions=Decision::where('year' ,$year)->get();
+            Session::flash('year',$year);
+            return view('frontend.pages.investment.general_assembly_decisions' ,compact('decisions'));
+        }else{
+            return redirect()->route('decision')->with('error' ,'برجاء اختيار فلتر');
+        }
+    }
+
+    //3) disclosures reports [تقارير الافصاح]
+    public function disclosure()
+    {
+        $disclosures=Disclosure::where('year' , Carbon::now()->format('Y'))->get();
+        Session::flash('year',Carbon::now()->format('Y'));
+        return view('frontend.pages.investment.disclosures_reports' ,compact('disclosures'));
+    }
+
+    public function downloadDisclosureFile($id)
+    {
+        $disclosure_file=Disclosure::find($id);
+        $myFile = public_path($disclosure_file->file);
+        return response()->download($myFile);
+    }
+
+    public function disclosureFilter(Request $request)
+    {
+        
+        if(!empty($request->year)){
+            $year=$request->year;
+            $disclosures=Disclosure::where('year' ,$year)->get();
+            Session::flash('year',$year);
+            return view('frontend.pages.investment.disclosures_reports' ,compact('disclosures'));
+        }else{
+            return redirect()->route('disclosure')->with('error' ,'برجاء اختيار فلتر');
+        }
+    }
+
+    //4)board of directors [قرارات مجلس الاداره]
+    public function director()
+    {
+        $directors=Director::where('year' , Carbon::now()->format('Y'))->get();
+        Session::flash('year',Carbon::now()->format('Y'));
+        return view('frontend.pages.investment.board_of _directors' ,compact('directors'));
+    }
+
+    public function downloadDirectorFile($id)
+    {
+        $director_file=Director::find($id);
+        $myFile = public_path($director_file->file);
+        return response()->download($myFile);
+    }
+
+    public function directorFilter(Request $request)
+    {
+        
+        if(!empty($request->year)){
+            $year=$request->year;
+            $directors=Director::where('year' ,$year)->get();
+            Session::flash('year',$year);
+            return view('frontend.pages.investment.board_of _directors' ,compact('directors'));
+        }else{
+            return redirect()->route('director')->with('error' ,'برجاء اختيار فلتر');
+        }
+    }
+
+    //4)Details of shares [بيانات الاسهم]
+    public function share()
+    {
+        $share=DetailsShare::first();
+        return view('frontend.pages.investment.details_of_shares' ,compact('share'));
+    }
+
 
     public function logout()
     {

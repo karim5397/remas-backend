@@ -16,8 +16,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news=News::orderBy('id','DESC')->paginate(10);
-        return view('admin.news.index' ,compact('news'));
+        $all_news=News::orderBy('id','DESC')->paginate(10);
+        return view('admin.news.index' ,compact('all_news'));
     }
 
     public function newsStatus(Request $request)
@@ -43,7 +43,7 @@ class NewsController extends Controller
             'photo' => 'required',
             'status'=>'required|in:active,inactive',
             'date'=>'required',
-            'page_title'=>'required',
+            // 'page_title'=>'required',
         ],
         [
             "title.required" => "Please enter the title",
@@ -54,7 +54,7 @@ class NewsController extends Controller
             "page_title.required" => "Please enter seo page title",
         ]);
         $data=$request->all();
-        $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'backend/assets/images/news/',610,400);
+        $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/news/',610,400);
         $data['photo']=$image;
         $news=News::create($data);
         if($news){
@@ -80,7 +80,7 @@ class NewsController extends Controller
             'photo' => 'sometimes',
             'status'=>'required|in:active,inactive',
             'date'=>'required',
-            'page_title'=>'required',
+            // 'page_title'=>'required',
 
         ],
         [
@@ -95,7 +95,7 @@ class NewsController extends Controller
         $data=$request->all();
         if($request->file('photo')){
             $old_image=$request->old_photo;
-            $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'backend/assets/images/news/',640,400);
+            $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/news/',640,400);
             $data['photo']=$image;
             unlink($old_image);
             $news->update($data);

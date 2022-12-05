@@ -1,13 +1,12 @@
 <head>
     <meta charset="utf-8" />
-    <title>Remas | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Premium Bootstrap 5 Landing Page Template" />
-    <meta name="keywords" content="Startup, Business, Multi-uses, HTML, Clean, Modern, Creative" />
-    <meta name="author" content="Shreethemes" />
-    <meta name="email" content="shreethemes@gmail.com" />
-    <meta name="website" content="https://shreethemes.in" />
-    <meta name="Version" content="v1.0.0" />
+    <meta name="description" content="@yield("meta_description")">
+    <meta name="title" content="@yield("meta_title")">
+    <meta name="auth" content=@yield("meta_auth")>
+    <link rel="icon" type="image/png" href="{{asset(get_setting("favicon"))}}">
+    <title>@yield("page_title")</title>
+
     <!-- favicon -->
     <link href="images/favicon.ico" rel="shortcut icon">
     <!-- Bootstrap -->
@@ -24,10 +23,12 @@
     <link href="{{asset('frontend/assets/css/custom-style.css')}}" rel="stylesheet"/>
 
     
-    {{-- <meta name="description" content="@yield("meta_description")">
-    <meta name="title" content="@yield("meta_title")">
-    <meta name="auth" content=@yield("meta_auth")>
-    <link rel="icon" type="image/png" href="{{asset(get_setting("favicon"))}}">
-    <title>@yield("page_title")</title> --}}
+
+    <style>
+        .alert.fadeInRight .close{
+            border: none;
+            background-color: transparent
+        }
+    </style>
 
 </head>

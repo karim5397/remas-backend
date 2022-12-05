@@ -16,12 +16,14 @@ class AboutSeederTable extends Seeder
     public function run()
     {
         AboutUs::create([
-            'title' => 'We +60 Years Of Experience With A Big Fame Glorious Our And Company',
-            'description' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban & Regional Planning, Integrated Infrastructure, Housing, Water Supplies & Sewerage, Roads, Highways, Bridges and Airports, Power Supply, Industrial Facilities, Irrigation & Drainage, Land reclamation. AAW work force has grown to about 1000 employees spread over 8 Regional Branches in the Gulf Region, Middle East, and Africa. They have always aspired to achieve project objectives by the selection of the most highly qualified professionals with practical experience combined with highest academic qualification.',
-            'vision_desc' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban',
-            'mission_desc' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban',
-            'value_desc' => 'AAW, is an independent Consulting Engineering firm established in 1957 in Cairo, Egypt, to serve the national developments in Egypt, Middle East and African countries by providing Professional Engineering Consulting Services for; Urban',
-            'photo' => 'backend/assets/images/about/about-1.png,backend/assets/images/about/about-2.png',
+            'title' => 'شركه سيراميك ريماس',
+            'description' => 'قم بتحسين نمط حياة عملائنا وتزويدهم بتجربة معيشية أفضل داخل منازلهم من خلال تزويدهم بمنتجات عالية الجودة بتصاميم إبداعية وجذابة من الناحية الجمالية تناسب كل الأذواق التي يتم تقديمها بطريقة أخلاقية وصديقة للبيئة. قدم لوكلائنا سعر منتج تنافسي مع تصميمات فريدة تميزنا عن المنافسة.
+
+                             أن نصبح أحد العشرة الأوائل الأكثر شهرة واحترامًا في صناعة بلاط السيراميك. للتوسع عالميًا والحفاظ على الاعتراف القوي بالعلامة التجارية والحضور في سوق بلاط السيراميك من خلال الاستمرار في تزويد العملاء بأعلى جودة من البلاط مع مجموعة متنوعة من التصميمات المبتكرة.',
+            'photo' => 'frontend/assets/images/bg/banner11.jpg',
+            'page_title' => "ريماس | حولنا",
+            'mission' => 'قم بتحسين نمط حياة عملائنا وتزويدهم بتجربة معيشية أفضل داخل منازلهم من خلال تزويدهم بمنتجات عالية الجودة بتصاميم إبداعية وجذابة من الناحية الجمالية تناسب كل الأذواق التي يتم تقديمها بطريقة أخلاقية وصديقة للبيئة. قدم لوكلائنا سعر منتج تنافسي مع تصميمات فريدة تميزنا عن المنافسة.',
+            'vision' => 'أن نصبح أحد العشرة الأوائل الأكثر شهرة واحترامًا في صناعة بلاط السيراميك. للتوسع عالميًا والحفاظ على الاعتراف القوي بالعلامة التجارية والحضور في سوق بلاط السيراميك من خلال الاستمرار في تزويد العملاء بأعلى جودة من البلاط مع مجموعة متنوعة من التصميمات المبتكرة.',
         ]);
     }
 }

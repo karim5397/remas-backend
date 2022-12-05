@@ -15,7 +15,6 @@ class ExportMessage implements FromCollection,WithHeadings
             'Email',
             'Company Name',
             'Phone',
-            'Position',
             'Subject',
             'Massege',
         ];
@@ -23,6 +22,6 @@ class ExportMessage implements FromCollection,WithHeadings
 
     public function collection()
     {
-        return Message::select('name','email','company_name','phone','position','subject','message')->get();
+        return Message::select('name','email','company_name','phone','subject','message')->get();
     }
 }

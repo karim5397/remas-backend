@@ -15,15 +15,14 @@ return new class extends Migration
     {
         Schema::create('contact_us', function (Blueprint $table) {
             $table->id();
-            $table->string('head_phone');
-            $table->string('head_email');
-            $table->longText('head_address');
-            $table->longText('head_openinig_time')->nullable();
-            $table->string('branch_phone')->nullable();
-            $table->string('branch_email')->nullable();
-            $table->longText('branch_address')->nullable();
-            $table->longText('branch_opening_time')->nullable();
+            $table->string('title');
+            $table->string('phone');
+            $table->string('email');
+            $table->longText('address');
+            $table->longText('map_url')->nullable();
+            $table->enum('status',['active' , 'inactive'])->nullable();
             $table->timestamps();
+         
         });
     }
 

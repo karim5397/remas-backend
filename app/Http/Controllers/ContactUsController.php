@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Exports\ExportMessage;
 use App\Models\Message;
 use App\Models\ContactUs;
 use Illuminate\Http\Request;
+use App\Exports\ExportMessage;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ContactUsController extends Controller
@@ -15,6 +16,16 @@ class ContactUsController extends Controller
         $contacts=ContactUs::orderBy('id','DESC')->paginate(10);
         return view('admin.contact.index' ,compact('contacts'));
     }
+    public function contactStatus(Request $request)
+    {
+        if($request->mode=='true')
+        {
+             DB::table('contact-us')->where('id' , $request->id)->update(['status' => 'active']);
+        }else{
+             DB::table('contact-us')->where('id' , $request->id)->update(['status' => 'inactive']);
+        }
+        return response()->json(['status' => true]);
+    }
     public function create()
     {
         return view('admin.contact.create');
@@ -22,20 +33,20 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request,[
-            'head_phone' => 'required|string|max:255',
-            'head_email' => 'required|string|max:255',
-            'head_address' => 'required',
-            'head_openinig_time' => 'required',
-            'branch_phone'=>'nullable|string|max:255',
-            'branch_email'=>'nullable|string|max:255',
-            'branch_address'=>'nullable',
-            'branch_opening_time'=>'nullable',
+            'title' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'address' => 'required',
+            'map_url' => 'required',
+            'status'=>'required|in:active,inactive',
         ],
         [
-            "head_phone.required" => "Please enter the head office phone",
-            "head_email.required" => "Please enter the head office email",
-            "head_address.required" => "Please enter the head office address",
-            "head_openinig_time.required" => "Please enter the opening time",
+            "title.required" => "Please enter the  title",
+            "phone.required" => "Please enter the  phone",
+            "email.required" => "Please enter the  email",
+            "address.required" => "Please enter the  address",
+            "map_url.required" => "Please enter the map url",
+            "status.required" => "Please choose the status",
         ]);
         $data=$request->all();
         $contact=ContactUs::create($data);
@@ -54,16 +65,20 @@ class ContactUsController extends Controller
     {
         $contact=ContactUs::find($id);
         $this->validate($request,[
-            'head_phone' => 'required|string|max:255',
-            'head_email' => 'required|string|max:255',
-            'head_address' => 'required',
-            'head_openinig_time' => 'required',
+            'title' => 'required|string|max:255',
+            'phone' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
+            'address' => 'required',
+            'map_url' => 'required',
+            'status'=>'required|in:active,inactive',
         ],
         [
-            "head_phone.required" => "Please enter the head office phone",
-            "head_email.required" => "Please enter the head office email",
-            "head_address.required" => "Please enter the head office address",
-            "head_openinig_time.required" => "Please enter the opening time",
+            "title.required" => "Please enter the  title",
+            "phone.required" => "Please enter the  phone",
+            "email.required" => "Please enter the  email",
+            "address.required" => "Please enter the  address",
+            "map_url.required" => "Please enter the map url",
+            "status.required" => "Please choose the status",
         ]);
         $data=$request->all();
         $contact->update($data);

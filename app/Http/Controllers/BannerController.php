@@ -34,20 +34,17 @@ class BannerController extends Controller
     {
         $this->validate($request,[
             'title' => 'required|string|max:255',
-            'typed_word' => 'required|string',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'photo' => 'required',
             'status'=>'required|in:active,inactive',
         ],
         [
             "title.required" => "Please enter the title",
-            "typed_word.required" => "Please enter the typed word",
-            "description.required" => "Please enter the description",
             "photo.required" => "Please choose a photo",
             "status.required" => "Please choose banner status",
         ]);
         $data=$request->all();
-        $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'backend/assets/images/banners/',1920,800);
+        $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/bg/',1920,800);
         $data['photo']=$image;
         $banner=Banner::create($data);
         if($banner){
@@ -68,22 +65,19 @@ class BannerController extends Controller
         $banner=Banner::find($id);
         $this->validate($request,[
             'title' => 'required|string|max:255',
-            'typed_word' => 'required|string',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'photo' => 'sometimes',
             'status'=>'required|in:active,inactive',
         ],
         [
             "title.required" => "Please enter the title",
-            "typed_word.required" => "Please enter the typed word",
-            "description.required" => "Please enter the description",
-            "photo.required" => "Please choose a photo",
-            "status.sometimes" => "Please choose banner status",
+            "photo.sometimes" => "Please choose a photo",
+            "status.required" => "Please choose banner status",
         ]);
         $data=$request->all();
         if($request->file('photo')){
             $old_image=$request->old_photo;
-            $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'backend/assets/images/banners/',1920,800);
+            $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/bg/',1920,800);
             $data['photo']=$image;
             unlink($old_image);
             $banner->update($data);
@@ -109,7 +103,9 @@ class BannerController extends Controller
         {
             $old_image=$banner->photo;
             $banner->delete();
-            unlink($old_image);
+            if($old_image != null){
+                unlink($old_image);
+            }
            return redirect()->route('banner.index')->with('success' , 'The banner is deleted');
         }else{
             return back()->with('error' , 'Something Went Wrong');

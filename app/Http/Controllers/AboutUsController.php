@@ -26,23 +26,21 @@ class AboutUsController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'vision_desc' => 'required|string',
-            'mission_desc'=>'required|string',
-            'value_desc'=>'required|string',
             'photo' => 'required',
             'page_title'=>'required',
+            'mission'=>'required|string',
+            'vision'=>'required|string',
         ],
         [
             "title.required" => "Please enter your the title",
             "description.required" => "Please enter the about description",
-            "vision_desc.required" => "Please enter the vision description",
-            "value_desc.required" => "Please enter the values description",
-            "mission_desc.required" => "Please enter the mission description",
             "photo.required" => "Please choose a photo",
             "page_title.required" => "Please enter seo page title",
+            "mission.required" => "Please enter the mission",
+            "vision.required" => "Please enter the vision",
         ]);
         $data=$request->all();
-        $image=ImageStoreTrait::storeMultiImage($request->file('photo'),'backend/assets/images/about/',500,600);
+        $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/bg/',700,500);
         $data['photo']=$image;
         $about=AboutUs::create($data);
         if($about){
@@ -62,57 +60,52 @@ class AboutUsController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'vision_desc' => 'required|string',
-            'mission_desc'=>'required|string',
-            'value_desc'=>'required|string',
             'photo' => 'sometimes',
             'page_title'=>'required',
+            'mission'=>'required|string',
+            'vision'=>'required|string',
         ],
         [
             "title.required" => "Please enter your the title",
             "description.required" => "Please enter the about description",
-            "vision_desc.required" => "Please enter the vision description",
-            "value_desc.required" => "Please enter the values description",
-            "mission_desc.required" => "Please enter the mission description",
+            "mission.required" => "Please enter the mission",
+            "vision.required" => "Please enter the vision",
             "photo.sometimes" => "Please choose a photo",
             "page_title.required" => "Please enter seo page title",
         ]);
         $data=$request->all();
         if($request->file('photo')){
-            $image=ImageStoreTrait::storeMultiImage($request->file('photo'),'backend/assets/images/about/',500,600);
+            $old_image=$request->old_photo;
+            $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/bg/',700,500);
             $data['photo']=$image;
-            $old_image=explode(',',$request->old_photo);
-            foreach($old_image as $img){
-                unlink($img);
-            }
+            unlink($old_image);
             $about->update($data);
-            if($about)
-            {
-                return redirect()->route('about.index')->with('success' , 'The about updated');
+            if($about){
+                return redirect()->route('about.index')->with('success','The about updated successfully');
             }else{
-
-                return redirect()->back()->with('error' , 'Something Went Wrong');
+                return back()->with('error','Something went wrong');
             }
         }else{
             $about->update($data);
-            if($about)
-            {
-                return redirect()->route('about.index')->with('success' , 'The about updated');
+            if($about){
+                return redirect()->route('about.index')->with('success','The about updated successfully');
             }else{
-
-                return redirect()->back()->with('error' , 'Something Went Wrong');
+                return back()->with('error','Something went wrong');
             }
         }
+        
     }
     public function destroy($id)
     {
-        if($about=AboutUs::find($id))
+       
+        $about=AboutUs::find($id);
+        if($about)
         {
-           $about->delete();
-           $old_image=explode(',',$about->photo);
-           foreach($old_image as $img){
-               unlink($img);
-           }
+            $old_image=$about->photo;
+            $about->delete();
+            if($old_image != null){
+                unlink($old_image);
+            }
            return redirect()->route('about.index')->with('success' , 'The about is deleted');
         }else{
             return back()->with('error' , 'Something Went Wrong');

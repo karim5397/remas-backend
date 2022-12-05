@@ -53,7 +53,7 @@ class LoginController extends Controller
             'email.required' => 'the email is required ',
             'password.required' => 'the password is required',
         ]);
-        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
+        if(Auth::attempt(['email'=>$request->email,'password'=>$request->password ,'status' =>'active'])){
             return redirect()->route('dashboard');
         }else{
             if(User::where('email', $request->email)->exists()){

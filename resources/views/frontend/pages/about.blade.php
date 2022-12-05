@@ -8,128 +8,63 @@
 @section('content')
 
 
-  <!-- Start Page Banner Section -->
-  <section class="banner-section service-one">
-    <div class="d-table">
-        <div class="d-tablecell">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="page-title">
-                            <h2>About Us</h2>
-                            <ul>
-                                <li><a href="{{route('home')}}">home <i class="flaticon-right"></i> </a></li>
-                                <li>About Us</li>
-                            </ul>
+    <!-- Hero Start -->
+    <section class="bg-half-170 d-table w-100" style="background: url('{{asset('frontend/assets/images/bg/banner11.jpg')}}') center;">
+        <div class="bg-overlay bg-gradient-overlay"></div>
+        <div class="container">
+            <div class="position-middle-bottom">
+                <div class="title-heading text-center">
+                    <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark"> معلومات عنا</h5>
+                </div>
+            </div>
+        </div><!--end container-->
+    </section><!--end section-->
+    <!-- Hero End -->
+
+    <!-- Start -->
+    <section class="section direction">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 col-md-6">
+                    <img src="{{asset($about->photo)}}" class="img-fluid rounded shadow" alt="{{$about->photo_alt}}">
+                </div><!--end col-->
+
+                <div class="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                    <div class="section-title ms-lg-5">
+                        <h4 class="title mb-3">{{$about->title}}</h4>
+                        <p class="text-muted">{!!$about->description!!}</p>
+                                            
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+
+        <div class="container mt-100 mt-60">
+            <div class="row justify-content-center">
+                <div class="col-lg-6 col-md-6">
+                    <div class="card shadow p-4 rounded features features-classic feature-primary">
+                        <i class="fa-solid fa-tv fa-2x"></i>
+                        <div class="content my-3 border-bottom">
+                            <h4 href="#" class="text-dark">مهمتنا</h4>
+
+                            <p class="text-muted mt-3">{!!$about->mission!!}</p>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Page Banner Section -->
-<!-- Content -->
-<section class="team-man-section team-one-section mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title-left">
-                    <h4>Chairman</h4>
-                    <h2><span>Chairman's Message</span></h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
+                </div><!--end col-->
 
-            <div class="col-lg-4 col-md-6 col-sm-6 offset-sm-3 offset-lg-0">
-                <div class="single-team-wrapper mb-30">
-                    <div class="single-team">
-                        <img src="{{asset($team->photo)}}" alt="">
-                    </div>
-                    <div class="single-team-title text-center mt-2">
-                        <h4>{{$team->name}}</h4>
-                        <p>{{$team->position}}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8 col-md-6 col-sm-6 offset-sm-3 offset-lg-0">
-                <h3>{{$about->title}}</h3>
-                <p class="mt-4">{!!$about->description!!}</p>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End -->
+                <div class="col-lg-6 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
+                    <div class="card shadow p-4 rounded features features-classic feature-primary">
+                        <i class="fa-solid fa-atom fa-2x" ></i>
 
-<!-- Mission -->
-<section class="our-company-section py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="section-title-left">
-                    <h4>Our Company</h4>
-                    <h2><span>Vision,</span> Mission and Values</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-4 col-md-6 pr-0 single-sevice-1">
-                <div class="single-service mb-30">
-                    <i class="flaticon-vision"></i>
-                    <h4>Vision</h4>
-                    <p>{!!$about->vision_desc!!}</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 p-0 single-sevice-2">
-                <div class="single-service mb-30">
-                    <i class="flaticon-mission-accomplished"></i>
-                    <h4>Mission</h4>
-                    <p>{!!$about->mission_desc!!}</p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 offset-sm-3 offset-lg-0 pl-0 single-sevice-3">
-                <div class="single-service mb-30">
-                    <i class="flaticon-goal"></i>
-                    <h4>Values</h4>
-                    <p>{!!$about->value_desc!!}</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End -->
+                        <div class="content my-3 border-bottom">
+                            <h4 href="#" class="text-dark">رؤيتنا</h4>
 
-
-<!-- Subscribe -->
-<div class="submit-section">
-    <form id="contactForm" novalidate="true">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <label>name</label>
-                        <input type="text" class="form-control" required="" data-error="Please enter your name here" placeholder="Enter Your  Name">
+                            <p class="text-muted mt-3">{!!$about->vision!!}</p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="form-group">
-                        <label>Enter Address</label>
-                        <input type="email" class="form-control" required="" data-error="Please enter your email" placeholder="Enter Your Email Address">
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="text-center">
-                        <button type="submit" class="default-btn disabled" style="pointer-events: all; cursor: pointer;">
-                            subscribe
-                            <i class="flaticon-right-arrow"></i>
-                        </button>
-                        <div id="msgSubmit" class="h3 text-center hidden"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-</div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    </section><!--end section-->
+    <!-- End -->
 @endsection

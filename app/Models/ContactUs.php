@@ -9,13 +9,11 @@ class ContactUs extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'head_phone',
-        'head_email',
-        'head_address',
-        'head_openinig_time',
-        'branch_phone',
-        'branch_email',
-        'branch_address',
-        'branch_opening_time',
+        'title',
+        'phone',
+        'email',
+        'address',
+        'map_url',
+        'status',
     ];
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('date');
             $table->enum('status',['active' , 'inactive'])->default('active');
             $table->string('photo');
+            $table->string('photo_alt')->nullable();
             $table->longText('meta_description')->nullable();
             $table->string('meta_auth')->nullable();
             $table->string('meta_title')->nullable();

@@ -7,13 +7,13 @@
 
 
 {{-- head  --}}
-{{-- @php
+@php
     $setting=App\Models\Setting::first()
 @endphp
 @section('page_title', $setting->page_title)
 @section('meta_title', $setting->meta_title)
 @section('meta_auth', $setting->meta_auth)
-@section('meta_description', strip_tags($setting->meta_description)) --}}
+@section('meta_description', strip_tags($setting->meta_description))
 
 @include('frontend.layouts.head')
 {{-- head  --}}

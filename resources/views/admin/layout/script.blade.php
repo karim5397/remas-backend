@@ -3,6 +3,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=["your-google-map-api"]&libraries=places"></script>
   <script src="{{asset('backend/assets/js/app.js')}}"></script>
   <script src="{{asset('backend/assets/js/jquery-3.6.0.min.js')}}"></script>
+
   <!-- END: JS Assets-->
 
 
@@ -48,32 +49,37 @@
 
 </script>
 
-{{-- change status --}}
+
+{{-- notification  --}}
+
+<script src="{{asset('backend/assets/js/bootstrap-notify.min.js')}}"></script>
 <script>
-    $('#status-btn').change(function(){
-        var mode = $(this).prop('checked');
-        var id = $(this).val();
-        $.ajax({
-            url:"{{route('user.status')}}",
-            type:'POST',
-            data:{
-                _token:'{{csrf_token()}}',
-                mode:mode,
-                id:id,
-            },
-            success:function(response){
-                if(response.status){
-                    swal("تم تغير الحاله بنجاح", {
-                        icon: "success",
-                        buttons:'موافق'
-                        });
-                }else{
-                    alert('please try again')
-                }
+    @if (Illuminate\Support\Facades\Session::has('success'))
+        $.notify("{{session()->get('success')}}", {
+            type:"success",
+            delay:4000,
+            animate: {
+                enter: 'animated fadeInRight',
+                exit: 'animated fadeOutRight'
             }
-        })
-    })
-
-
-
+        });
+    @endif
+    @php
+        Illuminate\Support\Facades\Session::forget('success');
+    @endphp
+    @if (Illuminate\Support\Facades\Session::has('error'))
+        $.notify("{{session()->get('error')}}", {
+            type:"danger",
+            delay:4000,
+            animate: {
+                enter: 'animated fadeInRight',
+                exit: 'animated fadeOutRight'
+            }
+        });
+    @endif
+    @php
+        Illuminate\Support\Facades\Session::forget('error');
+    @endphp
 </script>
+
+

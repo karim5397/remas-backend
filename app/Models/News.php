@@ -14,6 +14,7 @@ class News extends Model
         'date',
         'status',
         'photo',
+        'photo_alt',
         'meta_description',
         'meta_auth',
         'meta_title',

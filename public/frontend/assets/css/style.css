@@ -2834,7 +2834,7 @@ p {
     color: #252525;
   }
   #topnav .navigation-menu.nav-light > li.active > a {
-    color: #ffffff !important;
+    color: #a48234 !important;
   }
   #topnav .navigation-menu.nav-light > li:hover > .menu-arrow {
     border-color: #ffffff !important;
