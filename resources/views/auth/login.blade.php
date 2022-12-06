@@ -4,11 +4,8 @@
     <!-- BEGIN: Head -->
     <head>
         <meta charset="utf-8">
-        <link href="{{asset('backend/assets/images/favicon.ico')}}" rel="shortcut icon">
+        <link href="{{asset(get_setting('favicon'))}}" rel="shortcut icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Midone admin is super flexible, powerful, clean & modern responsive tailwind admin template with unlimited possibilities.">
-        <meta name="keywords" content="admin template, Midone Admin Template, dashboard template, flat admin template, responsive admin template, web app">
-        <meta name="author" content="LEFT4CODE">
         <title>Login - Remas </title>
         <!-- BEGIN: CSS Assets-->
         <link rel="stylesheet" href="{{asset('backend/assets/css/app.css')}}" />
@@ -21,10 +18,10 @@
                 <!-- BEGIN: Login Info -->
                 <div class="hidden xl:flex flex-col min-h-screen">
                     <a href="" class="-intro-x flex items-center pt-5" style="background-color:#fff; border-radius:10px; width:fit-content;">
-                        <img alt="Midone - HTML Admin Template" class="w-100 p-3" src="{{asset('backend/assets/images/logo.png')}}" width="300px">
+                        <img  class="w-100 p-3" src="{{asset(get_setting('logo'))}}" width="300px">
                     </a>
                     <div class="my-auto">
-                        <img alt="Midone - HTML Admin Template" class="-intro-x w-1/2 -mt-16" src="{{asset('backend/assets/images/illustration.svg')}}">
+                        <img  class="-intro-x w-1/2 -mt-16" src="{{asset('backend/assets/images/illustration.svg')}}">
                         <div class="-intro-x text-white font-medium text-4xl leading-tight mt-10">
                             A few more clicks to 
                             <br>

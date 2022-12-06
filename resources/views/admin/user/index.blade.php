@@ -12,9 +12,28 @@
                 <li class="breadcrumb-item active" aria-current="page">Show Users</li>
             </ol>
         </nav>
-        <div class="intro-x dropdown w-8 h-8">
-            <div class="w-8 h-8 rounded-full overflow-hidden shadow-lg  zoom-in text-center">
-                <a href="{{route('user.logout')}}" title="Logout"><i class="fa-solid fa-right-from-bracket"></i></a>
+       <div class="intro-x dropdown w-8 h-8">
+            <div class="dropdown-toggle w-8 h-8 rounded-full overflow-hidden shadow-lg image-fit zoom-in" role="button" aria-expanded="false" data-tw-toggle="dropdown">
+                <img alt="Midone - HTML Admin Template" src="{{asset(auth()->user()->photo)}}">
+            </div>
+            <div class="dropdown-menu w-56">
+                <ul class="dropdown-content bg-primary text-white">
+                    <li class="p-2">
+                        <div class="font-medium">{{ucFirst(auth()->user()->first_name)}} {{ucFirst(auth()->user()->last_name)}}</div>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider border-white/[0.08]">
+                    </li>
+                    <li>
+                        <a href="{{route('user.edit',auth()->user()->id)}}" class="dropdown-item hover:bg-white/5"> <i data-lucide="user" class="w-4 h-4 mr-2"></i>Edit Profile </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider border-white/[0.08]">
+                    </li>
+                    <li>
+                        <a href="{{route('user.logout')}}" class="dropdown-item hover:bg-white/5"> <i data-lucide="toggle-right" class="w-4 h-4 mr-2"></i> Logout </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
