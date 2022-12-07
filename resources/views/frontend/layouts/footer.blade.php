@@ -25,8 +25,9 @@
                                  <div class="pt-3">
                                      <span><strong>البريد الالكترونى : </strong>info[at]ceramicaremas.com</span>
                                  </div>
-                                 <div class="pt-3">
-                                    <span><strong> الهاتف : </strong> 022269651</span>
+                                 <div class="pt-3 d-flex">
+                                    <strong> الهاتف : </strong>
+                                    <p class="px-2" style="direction: ltr;"> (+02) 226 965 1 </p>
                                 </div>
                                  <div class="pt-3">
                                     <ul class="d-flex flex-column list-unstyled gap-4">
