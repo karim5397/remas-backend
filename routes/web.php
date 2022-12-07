@@ -3,19 +3,16 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\DownloadController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\InvestmentController;
 use App\Http\Controllers\CertificateController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\frontend\IndexController;
 
 /*
@@ -38,23 +35,8 @@ Route::get('/inquery' , [IndexController::class , 'inquery'])->name('inquery');
 Route::post('/client-message' ,[IndexController::class , 'clientMessage'])->name('message');
 //about route
 Route::get('/about-us',[IndexController::class , 'aboutUs'])->name('about');
-//career route
-Route::get('/career',[IndexController::class , 'career'])->name('career');
-Route::get('/career-details/{id}',[IndexController::class , 'careerDetails'])->name('career.details');
-Route::post('/job-applied',[IndexController::class , 'jobApplied'])->name('career.applied');
-Route::get('/career/filter',[IndexController::class , 'careerFilter'])->name('career.filter');
 //certificate route
 Route::get('/certificate' , [IndexController::class , 'certificate'])->name('certificate');
-
-//projects route
-Route::get('projects',[IndexController::class , 'projects'])->name('projects');
-Route::get('project-details/{id}',[IndexController::class , 'projectDetails'])->name('project.details');
-Route::get('projects-filter',[IndexController::class , 'projectFilter'])->name('projects-filter');
-Route::get('projects-search',[IndexController::class , 'search'])->name('projects.search');
-
-//download route
-Route::get('download-page' ,[IndexController::class ,'downloadPage'])->name('download.page');
-Route::get('/download-file/{id}' , [IndexController::class , 'downloadFile'])->name('file.download');
 
 //news routes
 Route::get('/news', [IndexController::class , 'news'])->name('news');
@@ -89,8 +71,8 @@ Auth::routes(['login' => false , "register" => false]);
 Route::group(['prefix' => 'backEnd-remas-admin'], function(){
 Route::get('/login', [LoginController::class ,'loginForm'])->name('login.form');
 Route::post('/login', [LoginController::class ,'adminLogin'])->name('admin.login');
-Route::get('/register', [RegisterController::class ,'registerForm'])->name('register.form');
-Route::post('/register', [RegisterController::class ,'adminRegister'])->name('admin.register');
+// Route::get('/register', [RegisterController::class ,'registerForm'])->name('register.form');
+// Route::post('/register', [RegisterController::class ,'adminRegister'])->name('admin.register');
 });
 
 Route::group(['prefix' => 'backEnd-remas-admin' , 'middleware'=>'auth'], function(){
@@ -123,9 +105,6 @@ Route::group(['prefix' => 'backEnd-remas-admin' , 'middleware'=>'auth'], functio
     //setting route
     Route::get('setting' , [SettingController::class , 'setting'])->name('setting');
     Route::post('setting/update' , [SettingController::class , 'settingUpdate'])->name('setting.update');
-
-    //download route
-    Route::resource('download' ,DownloadController::class);
 
     //product route
     Route::get('/products' ,[ProductController::class , 'index'])->name('product.index');
