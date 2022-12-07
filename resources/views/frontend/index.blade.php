@@ -132,7 +132,7 @@
         </section><!--end section-->
         <!-- End -->
 
-        <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal fade bd-example-modal-lg theme-modal direction" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-body">
