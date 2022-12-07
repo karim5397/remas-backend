@@ -122,7 +122,7 @@
                                 <div class="card-body content">
                                     <a href="#" class="h5 title text-dark d-block mb-0">{{$news->title}}</a>
                                     <p class="text-muted mt-2 mb-2">{{$news->description}} </p>
-                                    <a href="#" class="link text-dark">اقرأ المزيد <i class="uil uil-arrow-right align-middle"></i></a>
+                                    <a href="{{route('news.details' , $news->id)}}" class="link text-dark">اقرأ المزيد <i class="uil uil-arrow-right align-middle"></i></a>
                                 </div>
                             </div>
                         </div><!--end col-->
