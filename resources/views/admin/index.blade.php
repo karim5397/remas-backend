@@ -104,8 +104,11 @@
                                     <div class="flex">
                                         <i class="fa-solid fa-chart-line fa-2x"></i> 
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{App\Models\Finance::select('id')->count()}}</div>
-                                    <div class="text-base text-slate-500 mt-1">Client Messages</div>
+                                    <div class=" leading-8 mt-6">
+                                        <p>Total Files = <strong>{{App\Models\Finance::select('id')->count()}}</strong></p> 
+                                        <p>Total User Download = <strong>{{App\Models\Finance::where('count' , '>' ,0)->sum('count')}}</strong></p> 
+                                    </div>
+                                    <div class="text-base text-slate-500 mt-1">Financial Reports</div>
                                 </div>
                             </div>
                         </div>
@@ -115,8 +118,11 @@
                                     <div class="flex">
                                         <i class="fa-solid fa-chart-line fa-2x"></i> 
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{App\Models\News::count()}}</div>
-                                    <div class="text-base text-slate-500 mt-1">Total News</div>
+                                    <div class=" leading-8 mt-6">
+                                        <p>Total Files = <strong>{{App\Models\Disclosure::select('id')->count()}}</strong></p> 
+                                        <p>Total User Download = <strong>{{App\Models\Disclosure::where('count' , '>' ,0)->sum('count')}}</strong></p> 
+                                    </div>
+                                    <div class="text-base text-slate-500 mt-1">Disclosure Reports</div>
                                 </div>
                             </div>
                         </div>
@@ -126,8 +132,11 @@
                                     <div class="flex">
                                         <i class="fa-solid fa-chart-line fa-2x"></i> 
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{App\Models\Product::count()}}</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Products</div>
+                                    <div class=" leading-8 mt-6">
+                                        <p>Total Files = <strong>{{App\Models\Director::select('id')->count()}}</strong></p> 
+                                        <p>Total User Download = <strong>{{App\Models\Director::where('count' , '>' ,0)->sum('count')}}</strong></p> 
+                                    </div>
+                                    <div class="text-base text-slate-500 mt-1">Board Of Director</div>
                                 </div>
                             </div>
                         </div>
@@ -137,11 +146,15 @@
                                     <div class="flex">
                                         <i class="fa-solid fa-chart-line fa-2x"></i> 
                                     </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{App\Models\User::count()}}</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Users</div>
+                                    <div class=" leading-8 mt-6">
+                                        <p>Total Files = <strong>{{App\Models\Decision::select('id')->count()}}</strong></p> 
+                                        <p>Total User Download = <strong>{{App\Models\Decision::where('count' , '>' ,0)->sum('count')}}</strong></p> 
+                                    </div>
+                                    <div class="text-base text-slate-500 mt-1">Assembly Decision</div>
                                 </div>
                             </div>
                         </div>
+                    
                     </div>
                 </div>
                 <!-- END: General Report -->
