@@ -120,9 +120,9 @@
                                     </div>
                                    
                                     <div class="input-form mt-3 has-success">
-                                        <label  class="form-label w-full flex flex-col sm:flex-row"> File * </label>
+                                        <label  class="form-label w-full flex flex-col sm:flex-row"> File (Max:5 MB , Type:pdf) * </label>
                                         <input class="form-control-file border w-full p-2" type="file" name="file">
-                                        @error('photo')
+                                        @error('file')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>

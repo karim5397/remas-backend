@@ -24,7 +24,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required',
+            'file' => 'required|mimes:pdf|file|max:5000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -50,8 +50,10 @@ class InvestmentController extends Controller
     public function financeDestroy($id)
     {
         $finance=Finance::find($id);
+        $old_file=$finance->file;
         if($finance){
             $finance->delete();
+            unlink($old_file);
            return redirect()->route('finance.show')->with('success' , 'The finance is deleted');
         }else{
             return back()->with('error' , 'Something Went Wrong');
@@ -72,7 +74,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required',
+            'file' => 'required|mimes:pdf|file|max:5000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -98,8 +100,10 @@ class InvestmentController extends Controller
     public function directorDestroy($id)
     {
         $director=Director::find($id);
+        $old_file=$director->file;
         if($director){
             $director->delete();
+            unlink($old_file);
            return redirect()->route('director.show')->with('success' , 'The director is deleted');
         }else{
             return back()->with('error' , 'Something Went Wrong');
@@ -119,7 +123,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required',
+            'file' => 'required|mimes:pdf|file|max:5000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -145,8 +149,10 @@ class InvestmentController extends Controller
     public function disclosureDestroy($id)
     {
         $disclosure=Disclosure::find($id);
+        $old_file=$disclosure->file;
         if($disclosure){
             $disclosure->delete();
+            unlink($old_file);
            return redirect()->route('disclosure.show')->with('success' , 'The disclosure is deleted');
         }else{
             return back()->with('error' , 'Something Went Wrong');
@@ -166,7 +172,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required',
+            'file' => 'required|mimes:pdf|file|max:5000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -192,8 +198,10 @@ class InvestmentController extends Controller
     public function decisionDestroy($id)
     {
         $decision=Decision::find($id);
+        $old_file=$decision->file;
         if($decision){
             $decision->delete();
+            unlink($old_file);
            return redirect()->route('decision.show')->with('success' , 'The decision is deleted');
         }else{
             return back()->with('error' , 'Something Went Wrong');
