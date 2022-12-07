@@ -6,7 +6,7 @@
         <div class="container">
             <div class="position-middle-bottom">
                 <div class="title-heading text-center">
-                    <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark"> طلبات و استفسارات</h5>
+                    <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark"> طلبات و إستفسارات</h5>
                 </div>
             </div>
         </div><!--end container-->
@@ -19,7 +19,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-7 col-md-6 col-sm-12">
                     <div class="section-title mb-5 pb-2 text-center">
-                        <h4 class="title mb-3">تواصل معانا </h4>
+                        <h4 class="title mb-3">تواصل معنا</h4>
                     </div>
                     <div class="custom-form">
                         <form method="post" action="{{route('message')}}" class="direction">
@@ -29,7 +29,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">الاسم <span class="text-danger">*</span></label>
+                                        <label class="form-label">الأسم <span class="text-danger">*</span></label>
                                         <input name="name" id="name" type="text" class="form-control">
                                         @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
@@ -37,7 +37,7 @@
 
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">البريد الالكترونى <span class="text-danger">*</span></label>
+                                        <label class="form-label">البريد الإلكتروني <span class="text-danger">*</span></label>
                                         <input name="email" id="email" type="email" class="form-control">
                                         @error('email') <p class="text-danger">{{$message}}</p> @enderror
 
@@ -55,7 +55,7 @@
 
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">اسم الشركه<span class="text-danger">*</span></label>
+                                        <label class="form-label">إسم الشركة<span class="text-danger">*</span></label>
                                         <input name="company_name" id="name" type="text" class="form-control">
                                         @error('company_name') <p class="text-danger">{{$message}}</p> @enderror
 
@@ -73,17 +73,22 @@
 
                                 <div class="col-12">
                                     <div class="mb-3">
-                                        <label class="form-label">الرساله </label>
+                                        <label class="form-label">الرسالة </label>
                                         <textarea name="message" id="comments" rows="4" class="form-control"></textarea>
                                         @error('message') <p class="text-danger">{{$message}}</p> @enderror
 
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="mb-3">
+                                        <div class="g-recaptcha" data-sitekey="6LfXgWAjAAAAADT2c4ps2zoaw9W9Y26St66KbtUx"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="d-grid">
-                                        <button type="submit" id="submit" name="send" class="btn btn-primary" style="border:none !important;">ارسال الرساله</button>
+                                        <button type="submit" id="submit" name="send" class="btn btn-primary" style="border:none !important;">إرسال الرسالة</button>
                                     </div>
                                 </div><!--end col-->
                             </div><!--end row-->

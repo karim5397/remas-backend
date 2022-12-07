@@ -45,7 +45,7 @@
                         <div>
                             <h3>{{$about->title}}</h3>
                             <p>{{$about->description}}</p>
-                            <a href="#" class="btn btn-primary" style="border:none !important;">اقراء المزيد</a>              
+                            <a href="#" class="btn btn-primary" style="border:none !important;">اقرأ المزيد</a>              
                         </div>
                     </div><!--end col-->
 
@@ -106,7 +106,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="section-title text-center mb-4 pb-2">
-                            <h4 class="title fw-semibold mt-2 mb-3">أحدث ألاخبار</h4>
+                            <h4 class="title fw-semibold mt-2 mb-3">أحدث الأخبار</h4>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
@@ -122,7 +122,7 @@
                                 <div class="card-body content">
                                     <a href="#" class="h5 title text-dark d-block mb-0">{{$news->title}}</a>
                                     <p class="text-muted mt-2 mb-2">{{$news->description}} </p>
-                                    <a href="#" class="link text-dark">اقراء المزيد <i class="uil uil-arrow-right align-middle"></i></a>
+                                    <a href="#" class="link text-dark">اقرأ المزيد <i class="uil uil-arrow-right align-middle"></i></a>
                                 </div>
                             </div>
                         </div><!--end col-->
@@ -168,7 +168,7 @@
             $('#exampleModal').modal('show');
             document.getElementById("audio1").play(); 
         })
-        $('.close-audio').on('click',function(){
+        $(document).on('click',function(){
             document.getElementById("audio1").pause();
         })
     </script>

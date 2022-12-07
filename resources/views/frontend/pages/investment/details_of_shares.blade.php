@@ -12,7 +12,7 @@
     <div class="container">
         <div class="position-middle-bottom">
             <div class="title-heading text-center">
-                <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark">اداراه علاقات المستثمرين</h5>
+                <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark">إداره علاقات المستثمرين</h5>
             </div>
         </div>
     </div><!--end container-->
@@ -26,7 +26,7 @@
             <div class="col-lg-8 col-md-8 mt-3">
                 <div class="row">
                     <div class="col-md-12 mb-2">
-                        <h3 class="text-dir font-bold">بيانات الاسهم</h3>
+                        <h3 class="text-dir font-bold">بيانات الأسهم</h3>
                     </div>
                    <table class="table table-bordered direction">
                         <thead >

@@ -33,7 +33,7 @@
                             <div class="branch-details p-2">
                                 <ul class="d-flex flex-column list-unstyled gap-3 mt-4">
                                     <li><span><strong><i class="fa fa-phone"></i> الهاتف: </strong> {{$contact->phone}}</span></li>
-                                    <li><span><strong><i class="fa-regular fa-envelope"></i> البريد الالكترونى: </strong> {{$contact->email}}</span></li>
+                                    <li><span><strong><i class="fa-regular fa-envelope"></i> البريد الإلكترونى: </strong> {{$contact->email}}</span></li>
                                     <li><span><strong><i class="fa-solid fa-location-dot"></i> العنوان: </strong>{{$contact->address}}</span></li>
                                 </ul>
                             </div>

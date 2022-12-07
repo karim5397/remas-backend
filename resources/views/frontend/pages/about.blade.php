@@ -14,7 +14,7 @@
         <div class="container">
             <div class="position-middle-bottom">
                 <div class="title-heading text-center">
-                    <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark"> معلومات عنا</h5>
+                    <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark">عن الشركة</h5>
                 </div>
             </div>
         </div><!--end container-->
