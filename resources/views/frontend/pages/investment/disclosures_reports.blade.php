@@ -28,7 +28,7 @@
                     <div class="col-md-12 mb-5">
                         <div class="form-group" style="float: right;">
                             @php
-                                $years=App\Models\Disclosure::select('year')->distinct()->get();
+                                $years=App\Models\Disclosure::select('year')->distinct()->orderBy('year' ,'DESC')->get();
                             @endphp
                             <form action="{{route('disclosure.filter')}}" method="get" >
                                 <select name="year" class="form-select" style="width: fit-content;" onchange="this.form.submit();">

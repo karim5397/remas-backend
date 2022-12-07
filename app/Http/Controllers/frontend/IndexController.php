@@ -105,8 +105,7 @@ class IndexController extends Controller
     public function downloadFinanceFile($id)
     {
         $finance_file=Finance::find($id);
-        $myFile = public_path($finance_file->file);
-        return response()->download($myFile);
+        return response()->download($finance_file->file);
     }
     
    
@@ -134,8 +133,7 @@ class IndexController extends Controller
     public function downloadDecisionFile($id)
     {
         $decision_file=Decision::find($id);
-        $myFile = public_path($decision_file->file);
-        return response()->download($myFile);
+        return response()->download($decision_file->file);
     }
 
     public function decisionFilter(Request $request)
@@ -162,8 +160,7 @@ class IndexController extends Controller
     public function downloadDisclosureFile($id)
     {
         $disclosure_file=Disclosure::find($id);
-        $myFile = public_path($disclosure_file->file);
-        return response()->download($myFile);
+        return response()->download($disclosure_file->file);
     }
 
     public function disclosureFilter(Request $request)
@@ -190,8 +187,7 @@ class IndexController extends Controller
     public function downloadDirectorFile($id)
     {
         $director_file=Director::find($id);
-        $myFile = public_path($director_file->file);
-        return response()->download($myFile);
+        return response()->download($director_file->file);
     }
 
     public function directorFilter(Request $request)
