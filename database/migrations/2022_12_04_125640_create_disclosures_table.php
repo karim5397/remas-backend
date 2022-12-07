@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('year');
             $table->longText('file');
+            $table->integer('count')->default(0);
             $table->timestamps();
         });
     }

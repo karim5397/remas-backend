@@ -46,7 +46,7 @@
                             @foreach ($finances as $finance)
                                 <tr class="text-center">
                                     <td>{{$finance->title}}</td>
-                                    <td><a href="{{route('finance.download',$finance->id)}}"><i class=" fas fa-download"></i></a></td>
+                                    <td><a href="{{route('finance.download',$finance->id)}}" id="counter" data-table="finance" data-id="{{$finance->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
                                 </tr>
                             @endforeach
                         

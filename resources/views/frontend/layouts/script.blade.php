@@ -48,3 +48,30 @@
 </script>
 
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+{{-- count number of users download files --}}
+<script>
+    $(document).on('click','#counter',function (){
+        var count = $(this).data('counter');
+        var table = $(this).data('table');
+        var id = $(this).data('id');
+        $.ajax({
+            url:"{{route('count.download')}}",
+            type:'POST',
+            data:{
+                _token:'{{csrf_token()}}',
+                count:count,
+                id:id,
+                table:table,
+            },
+            success:function(response){
+                if(response.status){
+                   return;
+                }else{
+                    console.log('error');
+                }
+            }
+        });
+});
+</script>
+@yield('script')

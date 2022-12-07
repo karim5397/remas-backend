@@ -46,7 +46,7 @@
                             @foreach ($decisions as $decision)
                                 <tr class="text-center">
                                     <td>{{$decision->title}}</td>
-                                    <td><a href="{{route('decision.download',$decision->id)}}"><i class=" fas fa-download"></i></a></td>
+                                    <td><a href="{{route('decision.download',$decision->id)}}" id="counter" data-table="decision" data-id="{{$decision->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
                                 </tr>
                             @endforeach
                         

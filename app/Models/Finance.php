@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Finance extends Model
 {
     use HasFactory;
-    protected $fillable=['title' , 'file' , 'year'];
+    protected $fillable=['title' , 'file' , 'year' ,'count'];
 }

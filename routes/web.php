@@ -64,6 +64,7 @@ Route::get('/news/{id}', [IndexController::class , 'newsDetails'])->name('news.d
 Route::get('/finance' ,[IndexController::class ,'finance'])->name('finance');
 Route::get('/download-finance-file/{id}' , [IndexController::class , 'downloadFinanceFile'])->name('finance.download');
 Route::get('/finance-filter' ,[IndexController::class ,'financeFilter'])->name('finance.filter');
+Route::post('/count-download' ,[IndexController::class ,'countDownload'])->name('count.download');
 
 Route::get('/decision' ,[IndexController::class ,'decision'])->name('decision');
 Route::get('/download-decision-file/{id}' , [IndexController::class , 'downloadDecisionFile'])->name('decision.download');

@@ -46,7 +46,7 @@
                             @foreach ($disclosures as $disclosure)
                                 <tr class="text-center">
                                     <td>{{$disclosure->title}}</td>
-                                    <td><a href="{{route('disclosure.download',$disclosure->id)}}"><i class=" fas fa-download"></i></a></td>
+                                    <td><a href="{{route('disclosure.download',$disclosure->id)}}" id="counter" data-table="disclosure" data-id="{{$disclosure->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
                                 </tr>
                             @endforeach
                         

@@ -8,7 +8,7 @@
     <title>@yield("page_title")</title>
 
     <!-- favicon -->
-    <link href="images/favicon.ico" rel="shortcut icon">
+    <link href="{{asset(get_setting("favicon"))}}" rel="shortcut icon">
     <!-- Bootstrap -->
     <link href="{{asset('frontend/assets/css/bootstrap.rtl.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('frontend/assets/css/tiny-slider.css')}}" rel="stylesheet" type="text/css" />

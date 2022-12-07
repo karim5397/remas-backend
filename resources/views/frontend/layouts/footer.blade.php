@@ -50,10 +50,10 @@
                         <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0 ">
                             <h6 class="footer-head">القائمة الرئيسية</h6>
                             <ul class="list-unstyled footer-list mt-4">
-                                <li><a href="{{route('news')}}" class="text-foot"><i class="uil uil-angle-left-b me-1"></i>الاخبار</a></li>
+                                <li><a href="{{route('news')}}" class="text-foot"><i class="uil uil-angle-left-b me-1"></i>ألاخبار</a></li>
                                 <li><a href="{{route('contact')}}" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> الفروع</a></li>
                                 <li><a href="{{route('inquery')}}" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> طلبات و استفسارات</a></li>
-                                <li><a href="{{route('about')}}" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> حولنا</a></li>
+                                <li><a href="{{route('about')}}" class="text-foot"><i class="uil uil-angle-left-b me-1"></i> عن الشركة</a></li>
                             </ul>
                         </div><!--end col-->
 

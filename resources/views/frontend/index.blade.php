@@ -106,7 +106,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12">
                         <div class="section-title text-center mb-4 pb-2">
-                            <h4 class="title fw-semibold mt-2 mb-3">احدث الاخبار</h4>
+                            <h4 class="title fw-semibold mt-2 mb-3">أحدث ألاخبار</h4>
                         </div>
                     </div><!--end col-->
                 </div><!--end row-->
@@ -131,5 +131,45 @@
             </div><!--end container-->
         </section><!--end section-->
         <!-- End -->
+
+        <div class="modal fade bd-example-modal-lg theme-modal" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <div class="news-latter">
+                    <div class="modal-bg">
+                      <div class="newslatter-main">
+                        <div class="offer-content">
+                        <div>
+                          <button type="button" class="btn-close close-audio" data-bs-dismiss="modal" aria-label="Close"></button>
+                          <h2>سوره يس</h2>
+                          {{-- <audio id="audio1" src="{{asset('frontend/assets/media/1.mp3')}}" autoplay controls loop></audio> --}}
+                          <audio id="audio1" controls loop >
+                                <source  src="{{asset('frontend/assets/media/1.mp3')}}" type="audio/mpeg">
+                          </audio>
+                        </div>
+                      </div>
+                      <div class="imd-wrraper m-auto">
+                          <img src="{{asset('frontend/assets/images/photo.jpg')}}" style="height:700px !important; width:100%;"  alt="newsletterimg" class="img-fluid bg-img">
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
 </main>
+@endsection
+@section('script')
+    <script>
+        "use strict"
+        $(window).on('load',function(){
+            $('#exampleModal').modal('show');
+            document.getElementById("audio1").play(); 
+        })
+        $('.close-audio').on('click',function(){
+            document.getElementById("audio1").pause();
+        })
+    </script>
 @endsection

@@ -8,12 +8,12 @@
 @section('content')
 
     <!-- Hero Start -->
-    <section class="bg-half-170 d-table w-100" style="background: url('images/bg/banner11.jpg') center;">
+    <section class="bg-half-170 d-table w-100" style="background: url('{{asset('frontend/assets/images/bg/banner11.jpg')}}') center;">
         <div class="bg-overlay bg-gradient-overlay"></div>
         <div class="container">
             <div class="position-middle-bottom">
                 <div class="title-heading text-center">
-                    <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark">احدث الاخبار</h5>
+                    <h5 class="heading fw-semibold mb-0 page-heading text-white title-dark">أحدث ألاخبار</h5>
                 </div>
             </div>
         </div><!--end container-->

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Models\News;
+use Carbon\Carbon;
 
+use App\Models\News;
 use App\Models\Banner;
 use App\Models\AboutUs;
 use App\Models\Finance;
@@ -15,10 +16,11 @@ use App\Models\Download;
 use App\Models\ContactUs;
 use App\Models\Disclosure;
 use App\Models\Certificate;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Models\DetailsShare;
-use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\URL;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -106,7 +108,8 @@ class IndexController extends Controller
         $myFile = public_path($finance_file->file);
         return response()->download($myFile);
     }
-
+    
+   
     public function financeFilter(Request $request)
     {
         
@@ -209,6 +212,27 @@ class IndexController extends Controller
     {
         $share=DetailsShare::first();
         return view('frontend.pages.investment.details_of_shares' ,compact('share'));
+    }
+
+    public function countDownload(Request $request)
+    {
+        if($request->count == 1 && $request->table == 'finance')
+        {
+             DB::table('finances')->where('id' , $request->id)->increment('count');
+        }
+        if($request->count == 1 && $request->table == 'director')
+        {
+             DB::table('directors')->where('id' , $request->id)->increment('count');
+        }
+        if($request->count == 1 && $request->table == 'disclosure')
+        {
+             DB::table('disclosures')->where('id' , $request->id)->increment('count');
+        }
+        if($request->count == 1 && $request->table == 'decision')
+        {
+             DB::table('decisions')->where('id' , $request->id)->increment('count');
+        }
+        return response()->json(['status' => true]);
     }
 
 

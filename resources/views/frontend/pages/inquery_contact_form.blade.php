@@ -55,7 +55,7 @@
 
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label class="form-label">اسم الشركه</label>
+                                        <label class="form-label">اسم الشركه<span class="text-danger">*</span></label>
                                         <input name="company_name" id="name" type="text" class="form-control">
                                         @error('company_name') <p class="text-danger">{{$message}}</p> @enderror
 
@@ -64,7 +64,7 @@
 
                                 <div class="col-12">
                                     <div class="mb-3">
-                                        <label class="form-label">الموضوع</label>
+                                        <label class="form-label">الموضوع<span class="text-danger">*</span></label>
                                         <input name="subject" id="subject" class="form-control" >
                                         @error('subject') <p class="text-danger">{{$message}}</p> @enderror
 
@@ -73,7 +73,7 @@
 
                                 <div class="col-12">
                                     <div class="mb-3">
-                                        <label class="form-label">الرساله <span class="text-danger">*</span></label>
+                                        <label class="form-label">الرساله </label>
                                         <textarea name="message" id="comments" rows="4" class="form-control"></textarea>
                                         @error('message') <p class="text-danger">{{$message}}</p> @enderror
 
