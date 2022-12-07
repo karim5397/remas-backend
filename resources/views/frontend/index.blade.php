@@ -116,7 +116,7 @@
                         <div class="col-lg-4 col-md-6 mt-4 pt-2">
                             <div class="card blog blog-primary shadow rounded overflow-hidden">
                                 <div class="image position-relative overflow-hidden">
-                                    <img src="{{asset($news->photo)}}" class="img-fluid" alt="">
+                                    <img src="{{asset($news->photo)}}" class="img-fluid" alt="{{$news->photo_alt}}">
                                 </div>
 
                                 <div class="card-body content">
