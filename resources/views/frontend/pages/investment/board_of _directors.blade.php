@@ -1,4 +1,10 @@
 @extends('frontend.layouts.master')
+{{-- SEO TAGS --}}
+@section('page_title', get_setting('investment_page_title'))
+@section('meta_title', get_setting('investment_meta_title'))
+@section('meta_auth', get_setting('investment_meta_auth'))
+@section('meta_description', strip_tags(get_setting('investment_meta_description')))
+{{-- SEO TAGS --}}
 @section('content')
  <!-- Hero Start -->
  <section class="bg-half-170 d-table w-100" style="background: url('{{asset('frontend/assets/images/bg/banner7.jpg')}}') center;">

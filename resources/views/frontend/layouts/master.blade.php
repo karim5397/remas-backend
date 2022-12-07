@@ -30,11 +30,7 @@
 
 
 
-        <!-- search -->
-
-        @include('frontend.layouts.search')
-
-        <!-- End Sidebar Modal -->
+      
 
 
         {{-- start content  --}}

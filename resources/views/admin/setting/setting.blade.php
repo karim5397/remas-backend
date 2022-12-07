@@ -189,6 +189,50 @@
                             <div class="grid grid-cols-12 mt-5">
                                 <div class="col-span-12 px-2 my-5">
                                     <h2 class="text-lg font-medium mr-auto">
+                                        Investment Page SEO
+                                    </h2>
+                                </div>
+                                <div class="col-span-6 px-2 my-5">
+                                    <div class="input-form ">
+                                        <label  class="form-label w-full flex flex-col sm:flex-row">Investment Page Title * </label>
+                                        <input type="text" class="form-control" name="investment_page_title"  value="{{$setting->investment_page_title}}" required>
+                                        @error('investment_page_title')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-span-6 px-2 my-5">
+                                    <div class="input-form ">
+                                        <label  class="form-label w-full flex flex-col sm:flex-row">Investment Meta Title * </label>
+                                        <input type="text" class="form-control" name="investment_meta_title"  value="{{$setting->investment_meta_title}}" required>
+                                        @error('investment_meta_title')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-span-12 px-2">
+                                    <div class="input-form ">
+                                        <label  class="form-label w-full flex flex-col sm:flex-row">Investment Meta Auth * </label>
+                                        <input type="text" class="form-control" name="investment_meta_auth"  value="{{$setting->investment_meta_auth}}" required>
+                                        @error('investment_meta_auth')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-span-12 px-2 mt-2">
+                                    <div class="input-form">
+                                        <label  class="form-label w-full flex flex-col sm:flex-row">Investment Meta Description * </label>
+                                        <textarea  class="form-control tinymce-editor" name="investment_meta_description">{{$setting->investment_meta_description}}</textarea>
+                                        @error('investment_meta_description')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-12 mt-5">
+                                <div class="col-span-12 px-2 my-5">
+                                    <h2 class="text-lg font-medium mr-auto">
                                         Contact-US Page SEO
                                     </h2>
                                 </div>
@@ -230,6 +274,7 @@
                                 </div>
 
                             </div>
+
                             <button type="submit" class="btn btn-primary mt-5 w-full px-2">Update </button>
 
                         </form>

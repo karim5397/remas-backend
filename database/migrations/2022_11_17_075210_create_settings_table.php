@@ -25,6 +25,12 @@ return new class extends Migration
             $table->string('news_meta_auth')->nullable();
             $table->string('news_meta_title')->nullable();
 
+
+            $table->string('investment_page_title');
+            $table->longText('investment_meta_description')->nullable();
+            $table->string('investment_meta_auth')->nullable();
+            $table->string('investment_meta_title')->nullable();
+
             $table->string('contact_page_title');
             $table->longText('contact_meta_description')->nullable();
             $table->string('contact_meta_auth')->nullable();

@@ -19,6 +19,9 @@ class SettingController extends Controller
         $setting=Setting::first();
         $this->validate($request,[
             'page_title' => 'required|string',
+            'news_page_title' => 'required|string',
+            'investment_page_title' => 'required|string',
+            'contact_page_title' => 'required|string',
             'meta_description' => 'required|string',
             'meta_auth' => 'sometimes|nullable|string',
             'meta_title' => 'sometimes|nullable|string',
@@ -29,6 +32,9 @@ class SettingController extends Controller
         ],
         [
             "page_title.required" => "Please enter home title",
+            "news_page_title.required" => "Please enter news page title",
+            "investment_page_title.required" => "Please enter investment page title",
+            "contact_page_title.required" => "Please enter contact page title",
             "meta_description.required" => "Please enter meta description",
             "meta_auth.sometimes" => "Please enter meta auth",
             "meta_title.sometimes" => "Please enter meta title",
