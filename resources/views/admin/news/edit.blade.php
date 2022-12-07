@@ -62,7 +62,7 @@
                                 <div class="col-span-12">
                                     <div class="input-form">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">News Title * </label>
-                                        <input type="text" class="form-control" name="title"  value="{{$news->title}}" required>
+                                        <input type="text" class="form-control" name="title"  value="{{$news->title}}" >
                                         @error('title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -71,7 +71,7 @@
                                 <div class="col-span-12">
                                     <div class="input-form">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Date * </label>
-                                        <input type="text" name="date"  value="{{$news->date}}" class="datepicker form-control w-100 block mx-auto" data-single-mode="true" required> 
+                                        <input type="text" name="date"  value="{{$news->date}}" class="datepicker form-control w-100 block mx-auto" data-single-mode="true" > 
                                         @error('date')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -134,7 +134,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Page Title * </label>
-                                        <input type="text" class="form-control" name="page_title"  value="{{$news->page_title}}" required>
+                                        <input type="text" class="form-control" name="page_title"  value="{{$news->page_title}}" >
                                         @error('page_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror

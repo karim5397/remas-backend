@@ -58,7 +58,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Page Title * </label>
-                                        <input type="text" class="form-control" name="page_title"  value="{{$setting->page_title}}" required>
+                                        <input type="text" class="form-control" name="page_title"  value="{{$setting->page_title}}">
                                         @error('page_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -67,7 +67,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Meta Title * </label>
-                                        <input type="text" class="form-control" name="meta_title"  value="{{$setting->meta_title}}" required>
+                                        <input type="text" class="form-control" name="meta_title"  value="{{$setting->meta_title}}">
                                         @error('meta_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -76,7 +76,7 @@
                                 <div class="col-span-12 px-2">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Meta Auth * </label>
-                                        <input type="text" class="form-control" name="meta_auth"  value="{{$setting->meta_auth}}" required>
+                                        <input type="text" class="form-control" name="meta_auth"  value="{{$setting->meta_auth}}">
                                         @error('meta_auth')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -124,7 +124,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Facebook URL </label>
-                                        <input type="text" class="form-control" name="facebook_url"  value="{{$setting->facebook_url}}" required>
+                                        <input type="text" class="form-control" name="facebook_url"  value="{{$setting->facebook_url}}">
                                         @error('facebook_url')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -133,7 +133,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Instagram Url </label>
-                                        <input type="text" class="form-control" name="instagram_url"  value="{{$setting->instagram_url}}" required>
+                                        <input type="text" class="form-control" name="instagram_url"  value="{{$setting->instagram_url}}">
                                         @error('instagram_url')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -151,7 +151,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">News Page Title * </label>
-                                        <input type="text" class="form-control" name="news_page_title"  value="{{$setting->news_page_title}}" required>
+                                        <input type="text" class="form-control" name="news_page_title"  value="{{$setting->news_page_title}}">
                                         @error('news_page_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -160,7 +160,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">News Meta Title * </label>
-                                        <input type="text" class="form-control" name="news_meta_title"  value="{{$setting->news_meta_title}}" required>
+                                        <input type="text" class="form-control" name="news_meta_title"  value="{{$setting->news_meta_title}}">
                                         @error('news_meta_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -169,7 +169,7 @@
                                 <div class="col-span-12 px-2">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">News Meta Auth * </label>
-                                        <input type="text" class="form-control" name="news_meta_auth"  value="{{$setting->news_meta_auth}}" required>
+                                        <input type="text" class="form-control" name="news_meta_auth"  value="{{$setting->news_meta_auth}}">
                                         @error('news_meta_auth')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -195,7 +195,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Investment Page Title * </label>
-                                        <input type="text" class="form-control" name="investment_page_title"  value="{{$setting->investment_page_title}}" required>
+                                        <input type="text" class="form-control" name="investment_page_title"  value="{{$setting->investment_page_title}}">
                                         @error('investment_page_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -204,7 +204,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Investment Meta Title * </label>
-                                        <input type="text" class="form-control" name="investment_meta_title"  value="{{$setting->investment_meta_title}}" required>
+                                        <input type="text" class="form-control" name="investment_meta_title"  value="{{$setting->investment_meta_title}}">
                                         @error('investment_meta_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -213,7 +213,7 @@
                                 <div class="col-span-12 px-2">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Investment Meta Auth * </label>
-                                        <input type="text" class="form-control" name="investment_meta_auth"  value="{{$setting->investment_meta_auth}}" required>
+                                        <input type="text" class="form-control" name="investment_meta_auth"  value="{{$setting->investment_meta_auth}}">
                                         @error('investment_meta_auth')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -239,7 +239,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Contact-US Page Title * </label>
-                                        <input type="text" class="form-control" name="contact_page_title"  value="{{$setting->contact_page_title}}" required>
+                                        <input type="text" class="form-control" name="contact_page_title"  value="{{$setting->contact_page_title}}">
                                         @error('contact_page_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -248,7 +248,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Contact-US Meta Title * </label>
-                                        <input type="text" class="form-control" name="contact_meta_title"  value="{{$setting->contact_meta_title}}" required>
+                                        <input type="text" class="form-control" name="contact_meta_title"  value="{{$setting->contact_meta_title}}">
                                         @error('contact_meta_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -257,7 +257,7 @@
                                 <div class="col-span-12 px-2">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Contact-US Meta Auth * </label>
-                                        <input type="text" class="form-control" name="contact_meta_auth"  value="{{$setting->contact_meta_auth}}" required>
+                                        <input type="text" class="form-control" name="contact_meta_auth"  value="{{$setting->contact_meta_auth}}">
                                         @error('contact_meta_auth')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror

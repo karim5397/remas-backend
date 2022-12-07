@@ -137,7 +137,7 @@
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Meta Title * </label>
-                                        <input type="text" class="form-control" name="meta_title"  value="{{$about->meta_title}}" required>
+                                        <input type="text" class="form-control" name="meta_title"  value="{{$about->meta_title}}">
                                         @error('meta_title')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
@@ -146,7 +146,7 @@
                                 <div class="col-span-12 px-2">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Meta Auth * </label>
-                                        <input type="text" class="form-control" name="meta_auth"  value="{{$about->meta_auth}}" required>
+                                        <input type="text" class="form-control" name="meta_auth"  value="{{$about->meta_auth}}">
                                         @error('meta_auth')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
