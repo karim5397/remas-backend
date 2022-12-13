@@ -49,12 +49,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($decisions as $decision)
-                                <tr class="text-center">
-                                    <td>{{$decision->title}}</td>
-                                    <td><a href="{{route('decision.download',$decision->id)}}" id="counter" data-table="decision" data-id="{{$decision->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
-                                </tr>
-                            @endforeach
+                            @if ($decisions->count() > 0)
+                                @foreach ($decisions as $decision)
+                                    <tr class="text-center">
+                                        <td>{{$decision->title}}</td>
+                                        <td><a href="{{route('decision.download',$decision->id)}}" id="counter" data-table="decision" data-id="{{$decision->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
+                                    </tr>
+                                @endforeach
+                            @else
+                            <tr class="text-center">
+                                <td colspan="2"><p class="text-danger">لا يوجد تقارير</p></td>
+                            </tr>
+                            @endif
                         
                         </tbody>
                    </table>

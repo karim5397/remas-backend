@@ -34,11 +34,16 @@
                 <li class="has-submenu parent-parent-menu-item">
                     <a href="javascript:void(0)">إداره علاقات المستثمرين <i class="fa-solid fa-angle-down"></i></a><span class="menu-arrow" style="display: none;"></span>
                     <ul class="submenu">
-                        <li><a href="{{route('share')}}" class="sub-menu-item"> بيانات الأسهم</a></li>
+                        <li><a href="{{route('share')}}" class="sub-menu-item"> بيانات الأسهم و الشركة</a></li>
                         <li><a href="{{route('director')}}" class="sub-menu-item">قرارات مجلس الإدارة</a></li>
                         <li><a href="{{route('decision')}}" class="sub-menu-item"> قرارات الجمعية العمومية</a></li>
                         <li><a href="{{route('finance')}}" class="sub-menu-item"> القوائم المالية</a></li>
                         <li><a href="{{route('disclosure')}}" class="sub-menu-item"> تقارير الإفصاح</a></li>
+                        <li><a href="{{route('board.structure')}}" class="sub-menu-item">تشكيل مجلس الإداره</a></li>
+                        <li><a href="{{route('advertisement')}}" class="sub-menu-item">أعلانات السوق</a></li>
+                        <li><a href="{{route('government')}}" class="sub-menu-item">تقارير الحوكمة</a></li>
+                        <li><a href="{{route('follow_up')}}" class="sub-menu-item">تقارير لجنة المراجعة</a></li>
+                        <li><a href="{{route('remedies')}}" class="sub-menu-item">استدراكات</a></li>
                     </ul>
                         
                 </li>

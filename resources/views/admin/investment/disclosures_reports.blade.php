@@ -54,7 +54,6 @@
                          <th class="whitespace-nowrap">#</th>
                          <th class="whitespace-nowrap">Title</th>
                          <th class="whitespace-nowrap">Year</th>
-                         <th class="whitespace-nowrap">File</th>
                          <th class="whitespace-nowrap">Action</th>
                      </tr>
                  </thead>
@@ -65,7 +64,6 @@
                                  <td>{{$disclosures->firstItem()+$loop->index}})</td>
                                  <td>{{$disclosure->title}}</td>
                                  <td>{{$disclosure->year}}</td>
-                                 <td>{{$disclosure->file}}</td>
                                  <td>
                                      <div class="flex items-center">
                                          <form action="{{route('disclosure.destroy' , $disclosure->id)}}" method="POST" class="ml-2">

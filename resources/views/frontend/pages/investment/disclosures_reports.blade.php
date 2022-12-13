@@ -49,12 +49,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($disclosures as $disclosure)
-                                <tr class="text-center">
-                                    <td>{{$disclosure->title}}</td>
-                                    <td><a href="{{route('disclosure.download',$disclosure->id)}}" id="counter" data-table="disclosure" data-id="{{$disclosure->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
-                                </tr>
-                            @endforeach
+                            @if ($disclosures->count() > 0)
+                                @foreach ($disclosures as $disclosure)
+                                    <tr class="text-center">
+                                        <td>{{$disclosure->title}}</td>
+                                        <td><a href="{{route('disclosure.download',$disclosure->id)}}" id="counter" data-table="disclosure" data-id="{{$disclosure->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
+                                    </tr>
+                                @endforeach
+                            @else
+                            <tr class="text-center">
+                                <td colspan="2"><p class="text-danger">لا يوجد تقارير</p></td>
+                            </tr>
+                            @endif
                         
                         </tbody>
                    </table>

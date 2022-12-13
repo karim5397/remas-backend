@@ -49,12 +49,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($finances as $finance)
-                                <tr class="text-center">
-                                    <td>{{$finance->title}}</td>
-                                    <td><a href="{{route('finance.download',$finance->id)}}" id="counter" data-table="finance" data-id="{{$finance->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
-                                </tr>
-                            @endforeach
+                            @if ($finances->count() > 0)
+                                @foreach ($finances as $finance)
+                                    <tr class="text-center">
+                                        <td>{{$finance->title}}</td>
+                                        <td><a href="{{route('finance.download',$finance->id)}}" id="counter" data-table="finance" data-id="{{$finance->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
+                                    </tr>
+                                @endforeach
+                            @else
+                            <tr class="text-center">
+                                <td colspan="2"><p class="text-danger">لا يوجد تقارير</p></td>
+                            </tr>
+                            @endif
                         
                         </tbody>
                    </table>

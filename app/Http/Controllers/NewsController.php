@@ -97,9 +97,12 @@ class NewsController extends Controller
             $old_image=$request->old_photo;
             $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/news/',640,400);
             $data['photo']=$image;
-            unlink($old_image);
+            
             $news->update($data);
             if($news){
+                if(file_exists($old_image)){
+                    unlink($old_image);
+                }
                 return redirect()->route('news.index')->with('success','The news updated successfully');
             }else{
                 return back()->with('error','Something went wrong');
@@ -117,11 +120,13 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $news=News::find($id);
+        $old_image=$news->photo;
+        $news->delete();
         if($news)
         {
-            $old_image=$news->photo;
-            $news->delete();
-            unlink($old_image);
+            if(file_exists($old_image)){
+                unlink($old_image);
+            }
            return redirect()->route('news.index')->with('success' , 'The news is deleted');
         }else{
             return back()->with('error' , 'Something Went Wrong');

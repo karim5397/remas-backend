@@ -39,7 +39,9 @@ class CertificateController extends Controller
             $old_image=$certificate->photo;
             $certificate->delete();
             if($old_image != null){
-                unlink($old_image);
+                if(file_exists($old_image)){
+                    unlink($old_image);
+                }
             }
            return redirect()->route('certificate.index')->with('success' , 'The certificate is deleted');
         }else{

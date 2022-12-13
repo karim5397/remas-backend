@@ -29,6 +29,11 @@ class DatabaseSeeder extends Seeder
         $this->call(DirectorSeederTable::class);
         $this->call(DisclosureSeederTable::class);
         $this->call(ShareSeederTable::class);
+        $this->call(BoardStructureSeederTable::class);
+        $this->call(AdvertisementSeederTable::class);
+        $this->call(RemediesSeederTable::class);
+        $this->call(FollowUpSeederTable::class);
+        $this->call(GovernmentSeederTable::class);
         $this->call(SettingSeederTable::class);
     }
 }

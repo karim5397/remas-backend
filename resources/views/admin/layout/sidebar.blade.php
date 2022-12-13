@@ -1,6 +1,6 @@
 <nav class="side-nav">
     <a href="{{route('dashboard')}}" class="intro-x flex items-center " style="background-color: #fff; border-radius: 10px">
-        <img alt="Midone - HTML Admin Template" class="w-100 p-2" src="{{asset(get_setting('logo'))}}">
+        <img  class="w-100 p-2" src="{{asset(get_setting('logo'))}}">
     </a>
     <div class="side-nav__devider my-6"></div>
     <ul>
@@ -147,18 +147,24 @@
         </li>
 
         <li>
-            <a href="javascript:;" class="side-menu @if(Request::routeIs('director.show') || Request::routeIs('share.show') || Request::routeIs('decision.show') || Request::routeIs('disclosure.show') || Request::routeIs('finance.show')) side-menu--active side-menu--open @endif">
+            <a href="javascript:;" class="side-menu @if(Request::routeIs('director.show') || Request::routeIs('advertisement.show') || Request::routeIs('remedies.show') || Request::routeIs('follow_up.show') || Request::routeIs('structure.show') || Request::routeIs('government.show') || Request::routeIs('share.show') || Request::routeIs('decision.show') || Request::routeIs('disclosure.show') || Request::routeIs('finance.show')) side-menu--active side-menu--open @endif">
                 <div class="side-menu__icon"> <i class="fa-solid fa-chart-line"></i> </div>
                 <div class="side-menu__title">
                     Investments 
                     <div class="side-menu__sub-icon "> <i data-lucide="chevron-down"></i> </div>
                 </div>
             </a>
-            <ul class="@if(Request::routeIs('director.show') || Request::routeIs('share.show') || Request::routeIs('decision.show') || Request::routeIs('disclosure.show') || Request::routeIs('finance.show')) side-menu__sub-open @endif">
+            <ul class="@if(Request::routeIs('director.show') || Request::routeIs('remedies.show') || Request::routeIs('advertisement.show') || Request::routeIs('follow_up.show') || Request::routeIs('share.show') ||Request::routeIs('structure.show') || Request::routeIs('government.show') || Request::routeIs('decision.show') || Request::routeIs('disclosure.show') || Request::routeIs('finance.show')) side-menu__sub-open @endif">
                 <li>
                     <a href="{{route('share.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                         <div class="side-menu__title"> Details of Shares </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('structure.show')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
+                        <div class="side-menu__title"> Board Structure </div>
                     </a>
                 </li>
                 <li>
@@ -183,6 +189,30 @@
                     <a href="{{route('disclosure.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
                         <div class="side-menu__title"> Disclosures Reports </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('government.show')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
+                        <div class="side-menu__title"> Governances Reports </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('follow_up.show')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
+                        <div class="side-menu__title"> Follow-Up Committee Reports </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('remedies.show')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
+                        <div class="side-menu__title"> Remedies </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('advertisement.show')}}" class="side-menu">
+                        <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
+                        <div class="side-menu__title"> Advertisements </div>
                     </a>
                 </li>
             </ul>

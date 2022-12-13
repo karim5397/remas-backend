@@ -49,12 +49,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($directors as $director)
-                                <tr class="text-center">
-                                    <td>{{$director->title}}</td>
-                                    <td><a href="{{route('director.download',$director->id)}}" id="counter" data-table="director" data-id="{{$director->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
-                                </tr>
-                            @endforeach
+                            @if ($directors->count() > 0)
+                                @foreach ($directors as $director)
+                                    <tr class="text-center">
+                                        <td>{{$director->title}}</td>
+                                        <td><a href="{{route('director.download',$director->id)}}" id="counter" data-table="director" data-id="{{$director->id}}" data-counter="1"><i class=" fas fa-download"></i></a></td>
+                                    </tr>
+                                @endforeach
+                            @else
+                            <tr class="text-center">
+                                <td colspan="2"><p class="text-danger">لا يوجد تقارير</p></td>
+                            </tr>
+                            @endif
                         
                         </tbody>
                    </table>

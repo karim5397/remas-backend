@@ -54,7 +54,6 @@
                          <th class="whitespace-nowrap">#</th>
                          <th class="whitespace-nowrap">Title</th>
                          <th class="whitespace-nowrap">Year</th>
-                         <th class="whitespace-nowrap">File</th>
                          <th class="whitespace-nowrap">Action</th>
                      </tr>
                  </thead>
@@ -65,7 +64,6 @@
                                  <td>{{$directors->firstItem()+$loop->index}})</td>
                                  <td>{{$director->title}}</td>
                                  <td>{{$director->year}}</td>
-                                 <td>{{$director->file}}</td>
                                  <td>
                                      <div class="flex items-center">
                                          <form action="{{route('director.destroy' , $director->id)}}" method="POST" class="ml-2">

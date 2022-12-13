@@ -78,9 +78,11 @@ class AboutUsController extends Controller
             $old_image=$request->old_photo;
             $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/bg/',700,500);
             $data['photo']=$image;
-            unlink($old_image);
             $about->update($data);
             if($about){
+                if(file_exists($old_image)){
+                    unlink($old_image);
+                }
                 return redirect()->route('about.index')->with('success','The about updated successfully');
             }else{
                 return back()->with('error','Something went wrong');
@@ -104,7 +106,9 @@ class AboutUsController extends Controller
             $old_image=$about->photo;
             $about->delete();
             if($old_image != null){
-                unlink($old_image);
+                if(file_exists($old_image)){
+                    unlink($old_image);
+                }
             }
            return redirect()->route('about.index')->with('success' , 'The about is deleted');
         }else{

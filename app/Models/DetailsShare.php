@@ -9,10 +9,18 @@ class DetailsShare extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'instrument_type',
+        'founding_date',
+        'followed_law',
+        'purpose',
+        'company_branches',
+        'stock_market_date',
+        'version_number',
         'par_value',
-        'issuances_details',
         'number_shares',
+        'issued_capital',
+        'authorized_capital',
         'financial_year',
+        'external_auditor',
+        'vision_mission',
     ];
 }

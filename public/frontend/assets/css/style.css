@@ -2460,7 +2460,10 @@ p {
 }
 
 #topnav .has-submenu.active .submenu li.active > a {
-  color: #3274f0 !important;
+  color: #a48234 !important;
+}
+#topnav .has-submenu.active .submenu li.active > a:hover {
+  color: #252525 !important;
 }
 
 #topnav .has-submenu.active.active .menu-arrow {

@@ -15,11 +15,19 @@ return new class extends Migration
     {
         Schema::create('details_shares', function (Blueprint $table) {
             $table->id();
-            $table->string('instrument_type');
+            $table->string('founding_date');
+            $table->longText('followed_law');
+            $table->longText('purpose');
+            $table->longText('company_branches');
+            $table->string('stock_market_date');
+            $table->string('version_number');
             $table->string('par_value');
-            $table->longText('issuances_details');
             $table->string('number_shares');
-            $table->string('financial_year');
+            $table->longText('issued_capital');
+            $table->longText('authorized_capital');
+            $table->longText('financial_year');
+            $table->longText('external_auditor');
+            $table->longText('vision_mission');
             $table->timestamps();
         });
     }

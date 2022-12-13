@@ -42,9 +42,7 @@
         <h2 class="text-lg font-medium mr-auto">
             Show Details Of Shares
         </h2>
-        <div class="w-full sm:w-auto flex mt-4 sm:mt-0">
-            <a href="javascript:;" class="btn btn-primary shadow-md mr-2" data-tw-toggle="modal" data-tw-target="#add-shares"><i class="fa fa-plus-circle mr-2"></i> Add Shares</a>
-        </div>
+        
       
     </div>
     <!-- BEGIN: HTML Table Data -->
@@ -54,12 +52,11 @@
              <table class="table">
                  <thead class="table-dark">
                      <tr>
-                         <th class="whitespace-nowrap">#</th>
-                         <th class="whitespace-nowrap">Instrument Type</th>
+                         <th class="whitespace-nowrap">Founding Date</th>
+                         <th class="whitespace-nowrap">Followed Law</th>
+                         <th class="whitespace-nowrap">Purpose</th>
+                         <th class="whitespace-nowrap">Version Number</th>
                          <th class="whitespace-nowrap">Par Value</th>
-                         <th class="whitespace-nowrap">Issuances Details</th>
-                         <th class="whitespace-nowrap">Number of Shares</th>
-                         <th class="whitespace-nowrap">Financial Year</th>
                          <th class="whitespace-nowrap">Action</th>
                      </tr>
                  </thead>
@@ -67,84 +64,19 @@
                      @if (count($shares) > 0)
                          @foreach ($shares as $share)
                              <tr>
-                                 <td>{{$shares->firstItem()+$loop->index}})</td>
-                                 <td>{{$share->instrument_type}}</td>
-                                 <td>{{$share->par_value}}</td>
-                                 <td>{{$share->issuances_details}}</td>
-                                 <td>{{$share->number_shares}}</td>
-                                 <td>{{$share->financial_year}}</td>
-                                 <td>
+                                 <td>{{$share->founding_date}}</td>
+                                 <td>{{$share->followed_law}}</td>
+                                 <td>{{$share->purpose}}</td>
+                                 <td>{{$share->version_number}}</td>
+                                 <td>{{$share->par_value}}</td>                                 <td>
                                      <div class="flex items-center">
                                         <a href="javascript:;"  title="{{__('Edit')}}"  data-placement='button' class="btn btn-secondary" data-tw-toggle="modal" data-tw-target="#edit-shares-{{$share->id}}"><i class="fa fa-pen"></i></a>
-
-                                         <form action="{{route('share.destroy' , $share->id)}}" method="POST" class="ml-2">
-                                             @csrf
-                                             @method('DELETE')
-                                             <a href="" data-toggle="tooltip" title="{{__('Delete')}}" data-id="{{$share->id}}" data-placement='button' class="dltBtn btn btn-danger"><i class="fa fa-trash"></i></a>
-                                         </form>
                                      </div>
                                  </td>
                              </tr>
-                              <!-- BEGIN: Edit Modal Content -->
-      <div id="edit-shares-{{$share->id}}" class="modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-body p-10 text-center">
-                    <div class="preview">
-                        <h2 class="text-lg font-medium mr-auto pb-4">
-                            Edit Details of Shares
-                        </h2>
-                        <!-- BEGIN: Validation Form -->
-                        <form action="{{route('share.update',$share->id)}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method('PATCH')
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Instrument Type * </label>
-                                <input type="text" class="form-control" name="instrument_type"  value="{{$share->instrument_type}}" required>
-                                @error('instrument_type')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Par Value * </label>
-                                <input type="text" class="form-control" name="par_value"  value="{{$share->par_value}}" required>
-                                @error('par_value')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Issuances Details * </label>
-                                <input type="text" class="form-control" name="issuances_details"  value="{{$share->issuances_details}}" required>
-                                @error('issuances_details')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Number Shares * </label>
-                                <input type="text" class="form-control" name="number_shares"  value="{{$share->number_shares}}" required>
-                                @error('number_shares')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Financial Year * </label>
-                                <input type="text" class="form-control" name="financial_year"  value="{{$share->financial_year}}" required>
-                                @error('financial_year')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                           
-                    
-                            
-                            <button type="submit" class="btn btn-primary mt-5 w-full">Update </button>
-                        </form>
-                        <!-- END: Validation Form -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END: Edit Modal Content -->
+                            <!-- BEGIN: Edit Modal Content -->
+                                @include('admin.investment.edit_details_share')
+                            <!-- END: Edit Modal Content -->
                          @endforeach
                          
                      @else
@@ -164,68 +96,76 @@
     </div>
     <!-- END: HTML Table Data -->
 
-     <!-- BEGIN: Add Modal Content -->
-     <div id="add-shares" class="modal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-body p-10 text-center">
-                    <div class="preview">
-                        <h2 class="text-lg font-medium mr-auto pb-4">
-                            Add Details of Shares
-                        </h2>
-                        <!-- BEGIN: Validation Form -->
-                        <form action="{{route('share.store')}}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Instrument Type * </label>
-                                <input type="text" class="form-control" name="instrument_type"  value="{{old('instrument_type')}}" required>
-                                @error('instrument_type')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Par Value * </label>
-                                <input type="text" class="form-control" name="par_value"  value="{{old('par_value')}}" required>
-                                @error('par_value')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Issuances Details * </label>
-                                <input type="text" class="form-control" name="issuances_details"  value="{{old('issuances_details')}}" required>
-                                @error('issuances_details')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Number Shares * </label>
-                                <input type="text" class="form-control" name="number_shares"  value="{{old('number_shares')}}" required>
-                                @error('number_shares')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                            <div class="input-form mt-5">
-                                <label  class="form-label w-full flex flex-col sm:flex-row">Financial Year * </label>
-                                <input type="text" class="form-control" name="financial_year"  value="{{old('financial_year')}}" required>
-                                @error('financial_year')
-                                    <p class="text-danger">{{$message}}</p>
-                                @enderror
-                            </div>
-                           
-                    
-                            
-                            <button type="submit" class="btn btn-primary mt-5 w-full">Create </button>
-                        </form>
-                        <!-- END: Validation Form -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- END: Add Modal Content -->
+  
 
      
 </div>
+@endsection
+@section('script')
+{{-- check input feild validation --}}
+<script>
+    let error='This field is required';
+    $('#update').click(function(e){
+           
+            if($('input[name=founding_date]').val() == ''){
+                $('.error-div-founding_date').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+                
+            }
+            if($('input[name=followed_law]').val() == ''){
+                $('.error-div-followed_law').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=purpose]').val() == ''){
+                $('.error-div-purpose').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=company_branches]').val() == ''){
+                $('.error-div-company_branches').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=stock_market_date]').val() == ''){
+                $('.error-div-stock_market_date').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=version_number]').val() == ''){
+                $('.error-div-version_number').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=par_value]').val() == ''){
+                $('.error-div-par_value').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=number_shares]').val() == ''){
+                $('.error-div-number_shares').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=issued_capital]').val() == ''){
+                $('.error-div-issued_capital').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=authorized_capital]').val() == ''){
+                $('.error-div-authorized_capital').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=financial_year]').val() == ''){
+                $('.error-div-financial_year').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=external_auditor]').val() == ''){
+                $('.error-div-external_auditor').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }
+            if($('input[name=vision_mission]').val() == ''){
+                $('.error-div-vision_mission').html('<p class="text-danger">'+error+'</p>');
+                e.preventDefault();
+            }   
+
+         
+
+        })
+   
+</script>  
 @endsection
 
 

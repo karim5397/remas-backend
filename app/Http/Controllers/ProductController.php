@@ -37,11 +37,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product=Product::find($id);
+        $old_image=$product->photo;
+        $product->delete();
         if($product)
         {
-            $old_image=$product->photo;
-            $product->delete();
-            if($old_image != null){
+            if(file_exists($old_image)){
                 unlink($old_image);
             }
            return redirect()->route('product.index')->with('success' , 'The product is deleted');

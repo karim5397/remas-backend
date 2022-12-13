@@ -132,7 +132,7 @@
 @section('script')
     {{-- change status --}}
 <script>
-    $('#status-btn').change(function(){
+    $('input[name=toogle]').change(function(){
         var mode = $(this).prop('checked');
         var id = $(this).val();
         $.ajax({

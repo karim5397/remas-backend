@@ -87,9 +87,11 @@ class UserController extends Controller
             $old_image=$request->old_photo;
             $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/users/',150,150);
             $data['photo']=$image;
-            unlink($old_image);
             $user->update($data);
             if($user){
+                if(file_exists($old_image)){
+                    unlink($old_image);
+                }
                 return redirect()->route('user.index')->with('success','The user updated successfully');
             }else{
                 return back()->with('error','Something went wrong');
@@ -110,10 +112,10 @@ class UserController extends Controller
         }else{
 
             $user=User::find($id);
+            $old_image=$user->photo;
+            $user->delete();
             if($user){
-                $old_image=$user->photo;
-                $user->delete();
-                if($old_image != null){
+                if(file_exists($old_image)){
                     unlink($old_image);
                 }
                return redirect()->route('user.index')->with('success' , 'The user is deleted');

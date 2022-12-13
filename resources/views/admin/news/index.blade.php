@@ -49,27 +49,6 @@
     <!-- BEGIN: HTML Table Data -->
     <div class="intro-y box p-5 mt-5">
         <div class="flex flex-col sm:flex-row sm:items-end xl:items-start">
-            {{-- <form  class="xl:flex sm:mr-auto"  method="post" action="{{route('news.search')}}">
-                @csrf
-
-                <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Status</label>
-                    <select id="tabulator-html-filter-type" class="form-select w-full mt-2 sm:mt-0 sm:w-auto" name="status">
-                        <option value="" selected>-- status --</option>
-                        <option value="active" {{session()->get('status') == 'active' ? 'selected' : ''}}>Active</option>
-                        <option value="inactive" {{session()->get('status') == 'inactive' ? 'selected' : ''}}>Inactive</option>
-                      
-                    </select>
-                </div>
-                <div class="sm:flex items-center sm:mr-4 mt-2 xl:mt-0">
-                    <label class="w-12 flex-none xl:w-auto xl:flex-initial mr-2">Search</label>
-                    <input  type="text" class="form-control sm:w-40 2xl:w-full mt-2 sm:mt-0" name="search" value="{{session()->get('search')}}" placeholder="Search name,email">
-                </div>
-                <div class="mt-2 xl:mt-0">
-                    <button id="tabulator-html-filter-go" type="submit" class="btn btn-primary w-full sm:w-16" >Go</button>
-                    <a id="tabulator-html-filter-reset" href="{{route('news.index')}}" class="btn btn-secondary w-full sm:w-16 mt-2 sm:mt-0 sm:ml-1" >Reset</a>
-                </div>
-            </form> --}}
         </div>
         <div class="overflow-x-auto mt-4">
             <table class="table">
@@ -135,7 +114,7 @@
 @section('script')
     {{-- change status --}}
 <script>
-    $('#status-btn').change(function(){
+    $('input[name=toogle]').change(function(){
         var mode = $(this).prop('checked');
         var id = $(this).val();
         $.ajax({

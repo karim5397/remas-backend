@@ -79,9 +79,11 @@ class BannerController extends Controller
             $old_image=$request->old_photo;
             $image=ImageStoreTrait::storeImage($request->photo,$request->file('photo'),'frontend/assets/images/bg/',1920,800);
             $data['photo']=$image;
-            unlink($old_image);
             $banner->update($data);
             if($banner){
+                if(file_exists($old_image)){
+                    unlink($old_image);
+                }
                 return redirect()->route('banner.index')->with('success','The banner updated successfully');
             }else{
                 return back()->with('error','Something went wrong');
@@ -104,7 +106,9 @@ class BannerController extends Controller
             $old_image=$banner->photo;
             $banner->delete();
             if($old_image != null){
-                unlink($old_image);
+                if(file_exists($old_image)){
+                    unlink($old_image);
+                }
             }
            return redirect()->route('banner.index')->with('success' , 'The banner is deleted');
         }else{

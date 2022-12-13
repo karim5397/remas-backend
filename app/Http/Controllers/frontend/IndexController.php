@@ -13,14 +13,19 @@ use App\Models\Product;
 use App\Models\Decision;
 use App\Models\Director;
 use App\Models\Download;
+use App\Models\Remedies;
 use App\Models\ContactUs;
 use App\Models\Disclosure;
+use App\Models\Government;
 use App\Models\Certificate;
 use App\Models\DetailsShare;
 use Illuminate\Http\Request;
+use App\Models\Advertisement;
+use App\Models\BoardStructure;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
+use App\Models\FollowUpReport;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
@@ -203,11 +208,130 @@ class IndexController extends Controller
         }
     }
 
-    //4)Details of shares [بيانات الاسهم]
+    //5)Details of shares [بيانات الاسهم]
     public function share()
     {
         $share=DetailsShare::first();
         return view('frontend.pages.investment.details_of_shares' ,compact('share'));
+    }
+
+    //6)board Structure [ تشكيل مجلس الاداره]
+    public function boardStructure()
+    {
+        $structures_members=BoardStructure::where('type','member')->get();
+        $structures_directors=BoardStructure::where('type','director')->get();
+        return view('frontend.pages.investment.board_structure' ,compact('structures_members','structures_directors'));
+    }
+
+    //7) advertisement [الاعلانات]
+    public function advertisement()
+    {
+        $advertisements=Advertisement::where('year' , Carbon::now()->format('Y'))->get();
+        Session::flash('year',Carbon::now()->format('Y'));
+        return view('frontend.pages.investment.advertisement' ,compact('advertisements'));
+    }
+
+    public function downloadAdvertisementFile($id)
+    {
+        $advertisement_file=Advertisement::find($id);
+        return response()->download($advertisement_file->file);
+    }
+
+    public function advertisementFilter(Request $request)
+    {
+        
+        if(!empty($request->year)){
+            $year=$request->year;
+            $advertisements=Advertisement::where('year' ,$year)->get();
+            Session::flash('year',$year);
+            return view('frontend.pages.investment.advertisement' ,compact('advertisements'));
+        }else{
+            return redirect()->route('advertisement')->with('error' ,'برجاء اختيار فلتر');
+        }
+    }
+
+
+    //8) Governance reports [تقارير الحوكمه]
+    public function government()
+    {
+        $governments=Government::where('year' , Carbon::now()->format('Y'))->get();
+        Session::flash('year',Carbon::now()->format('Y'));
+        return view('frontend.pages.investment.governance_reports' ,compact('governments'));
+    }
+
+    public function downloadGovernmentFile($id)
+    {
+        $government_file=Government::find($id);
+        return response()->download($government_file->file);
+    }
+
+    public function governmentFilter(Request $request)
+    {
+        
+        if(!empty($request->year)){
+            $year=$request->year;
+            $governments=Government::where('year' ,$year)->get();
+            Session::flash('year',$year);
+            return view('frontend.pages.investment.governance_reports' ,compact('governments'));
+        }else{
+            return redirect()->route('government')->with('error' ,'برجاء اختيار فلتر');
+        }
+    }
+
+
+    //9) remedies [استدراكات]
+    public function remedies()
+    {
+        $remedies=Remedies::where('year' , Carbon::now()->format('Y'))->get();
+        Session::flash('year',Carbon::now()->format('Y'));
+        return view('frontend.pages.investment.remedies' ,compact('remedies'));
+    }
+
+    public function downloadRemediesFile($id)
+    {
+        $remedies_file=Remedies::find($id);
+        return response()->download($remedies_file->file);
+    }
+
+    public function remediesFilter(Request $request)
+    {
+        
+        if(!empty($request->year)){
+            $year=$request->year;
+            $remedies=Remedies::where('year' ,$year)->get();
+            Session::flash('year',$year);
+            return view('frontend.pages.investment.remedies' ,compact('remedies'));
+        }else{
+            return redirect()->route('remedies')->with('error' ,'برجاء اختيار فلتر');
+        }
+    }
+
+
+    //10) Follow-Up Committee Report [تقارير لجنه المراجعه]
+    public function follow_up()
+    {
+        $follow_ups=FollowUpReport::where('year' , Carbon::now()->format('Y'))->get();
+        Session::flash('year',Carbon::now()->format('Y'));
+        return view('frontend.pages.investment.follow-up_committe_reports' ,compact('follow_ups'));
+    }
+
+    public function downloadfollow_upFile($id)
+    {
+        $follow_up_file=FollowUpReport::find($id);
+        return response()->download($follow_up_file->file);
+    }
+
+    public function follow_upFilter(Request $request)
+    {
+        
+        if(!empty($request->year)){
+            $year=$request->year;
+            $follow_ups=FollowUpReport::where('year' ,$year)->get();
+            Session::flash('year',$year);
+            return view('frontend.pages.investment.follow-up_committe_reports' ,compact('follow_ups'));
+        }else{
+            return redirect()->route('follow_up')->with('error' ,'برجاء اختيار فلتر');
+        }
     }
 
     public function countDownload(Request $request)
@@ -227,6 +351,22 @@ class IndexController extends Controller
         if($request->count == 1 && $request->table == 'decision')
         {
              DB::table('decisions')->where('id' , $request->id)->increment('count');
+        }
+        if($request->count == 1 && $request->table == 'remedies')
+        {
+             DB::table('remedies')->where('id' , $request->id)->increment('count');
+        }
+        if($request->count == 1 && $request->table == 'government')
+        {
+             DB::table('governments')->where('id' , $request->id)->increment('count');
+        }
+        if($request->count == 1 && $request->table == 'advertisement')
+        {
+             DB::table('advertisements')->where('id' , $request->id)->increment('count');
+        }
+        if($request->count == 1 && $request->table == 'follow_up')
+        {
+             DB::table('follow_up_reports')->where('id' , $request->id)->increment('count');
         }
         return response()->json(['status' => true]);
     }

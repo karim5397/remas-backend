@@ -26,29 +26,61 @@
             <div class="col-lg-8 col-md-8 mt-3">
                 <div class="row">
                     <div class="col-md-12 mb-2">
-                        <h3 class="text-dir font-bold">بيانات الأسهم</h3>
+                        <h3 class="text-dir font-bold">بيانات الأسهم و الشركة</h3>
                     </div>
                    <table class="table table-bordered direction">
                         <thead >
                             <tr>
-                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">نوع الورقة </th>
-                                <td>{{$share->instrument_type}}</td>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">تاريخ التأسيس</th>
+                                <td>{{$share->founding_date}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">القانون الذى تتبعه الشركة</th>
+                                <td>{{$share->followed_law}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">الغرض</th>
+                                <td>{{$share->purpose}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">فروع الشركة</th>
+                                <td>{{$share->company_branches}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">تاريخ القيد بالبورصة</th>
+                                <td>{{$share->stock_market_date}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">عدد الإصدارات</th>
+                                <td>{{$share->version_number}}</td>
                             </tr>
                             <tr>
                                 <th style="width:200px;background-color:#a48234 !important; color:#fff !important">القيمة الاسمية</th>
                                 <td>{{$share->par_value}}</td>
                             </tr>
                             <tr>
-                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">تفاصيل الإصدارات</th>
-                                <td>{{$share->issuances_details}}</td>
-                            </tr>
-                            <tr>
-                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">عدد الأسهم</th>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">عدد الأسهم المقيدة</th>
                                 <td>{{$share->number_shares}}</td>
                             </tr>
                             <tr>
-                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">السنة المالية</th>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">رأس المال المدفوع</th>
+                                <td>{{$share->issued_capital}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">رأس المال المرخص به</th>
+                                <td>{{$share->authorized_capital}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">  السنة المالية</th>
                                 <td>{{$share->financial_year}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">أسم مراقب الحسابات</th>
+                                <td>{{$share->external_auditor}}</td>
+                            </tr>
+                            <tr>
+                                <th style="width:200px;background-color:#a48234 !important; color:#fff !important">هدف و  رؤية الشركة</th>
+                                <td>{{$share->vision_mission}}</td>
                             </tr>
                         </thead>
                    </table>

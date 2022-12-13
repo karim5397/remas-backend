@@ -56,11 +56,28 @@ Route::get('/disclosure' ,[IndexController::class ,'disclosure'])->name('disclos
 Route::get('/download-disclosure-file/{id}' , [IndexController::class , 'downloadDisclosureFile'])->name('disclosure.download');
 Route::get('/disclosure-filter' ,[IndexController::class ,'disclosureFilter'])->name('disclosure.filter');
 
+Route::get('/advertisement' ,[IndexController::class ,'advertisement'])->name('advertisement');
+Route::get('/download-advertisement-file/{id}' , [IndexController::class , 'downloadAdvertisementFile'])->name('advertisement.download');
+Route::get('/advertisement-filter' ,[IndexController::class ,'advertisementFilter'])->name('advertisement.filter');
+
+Route::get('/government' ,[IndexController::class ,'government'])->name('government');
+Route::get('/download-government-file/{id}' , [IndexController::class , 'downloadgovernmentFile'])->name('government.download');
+Route::get('/government-filter' ,[IndexController::class ,'governmentFilter'])->name('government.filter');
+
+Route::get('/follow_up' ,[IndexController::class ,'follow_up'])->name('follow_up');
+Route::get('/download-follow_up-file/{id}' , [IndexController::class , 'downloadFollow_upFile'])->name('follow_up.download');
+Route::get('/follow_up-filter' ,[IndexController::class ,'follow_upFilter'])->name('follow_up.filter');
+
+Route::get('/remedies' ,[IndexController::class ,'remedies'])->name('remedies');
+Route::get('/download-remedies-file/{id}' , [IndexController::class , 'downloadRemediesFile'])->name('remedies.download');
+Route::get('/remedies-filter' ,[IndexController::class ,'remediesFilter'])->name('remedies.filter');
+
 Route::get('/director' ,[IndexController::class ,'director'])->name('director');
 Route::get('/download-director-file/{id}' , [IndexController::class , 'downloadDirectorFile'])->name('director.download');
 Route::get('/director-filter' ,[IndexController::class ,'directorFilter'])->name('director.filter');
 
 Route::get('/details-of-shares' ,[IndexController::class ,'share'])->name('share');
+Route::get('/boad-structure' ,[IndexController::class ,'boardStructure'])->name('board.structure');
 
 //end frontend routes
 
@@ -133,10 +150,30 @@ Route::group(['prefix' => 'backEnd-remas-admin' , 'middleware'=>'auth'], functio
     Route::post('/decisions/store' ,[InvestmentController::class , 'decisionStore'])->name('decision.store');
     Route::delete('/decision-delete/{id}' ,[InvestmentController::class , 'decisionDestroy'])->name('decision.destroy');
 
+    Route::get('/government' ,[InvestmentController::class , 'governmentShow'])->name('government.show');
+    Route::post('/government/store' ,[InvestmentController::class , 'governmentStore'])->name('government.store');
+    Route::delete('/government-delete/{id}' ,[InvestmentController::class , 'governmentDestroy'])->name('government.destroy');
+
+    Route::get('/advertisement' ,[InvestmentController::class , 'advertisementShow'])->name('advertisement.show');
+    Route::post('/advertisement/store' ,[InvestmentController::class , 'advertisementStore'])->name('advertisement.store');
+    Route::delete('/advertisement-delete/{id}' ,[InvestmentController::class , 'advertisementDestroy'])->name('advertisement.destroy');
+
+    Route::get('/remedies' ,[InvestmentController::class , 'remediesShow'])->name('remedies.show');
+    Route::post('/remedies/store' ,[InvestmentController::class , 'remediesStore'])->name('remedies.store');
+    Route::delete('/remedies-delete/{id}' ,[InvestmentController::class , 'remediesDestroy'])->name('remedies.destroy');
+
+    Route::get('/follow_up' ,[InvestmentController::class , 'follow_upShow'])->name('follow_up.show');
+    Route::post('/follow_up/store' ,[InvestmentController::class , 'follow_upStore'])->name('follow_up.store');
+    Route::delete('/follow_up-delete/{id}' ,[InvestmentController::class , 'follow_upDestroy'])->name('follow_up.destroy');
+
     Route::get('/shares' ,[InvestmentController::class , 'shareShow'])->name('share.show');
-    Route::post('/shares/store' ,[InvestmentController::class , 'shareStore'])->name('share.store');
     Route::patch('/share-update/{id}' ,[InvestmentController::class , 'shareUpdate'])->name('share.update');
-    Route::delete('/share-delete/{id}' ,[InvestmentController::class , 'shareDestroy'])->name('share.destroy');
+
+
+    Route::get('/board-structure' ,[InvestmentController::class , 'boardStructureShow'])->name('structure.show');
+    Route::post('/board-structure/store' ,[InvestmentController::class , 'boardStructureStore'])->name('structure.store');
+    Route::patch('/board-structure-update/{id}' ,[InvestmentController::class , 'boardStructureUpdate'])->name('structure.update');
+    Route::delete('/board-structure-delete/{id}' ,[InvestmentController::class , 'boardStructureDestroy'])->name('structure.destroy');
 
 
 

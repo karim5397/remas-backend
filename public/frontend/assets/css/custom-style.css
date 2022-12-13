@@ -29,6 +29,11 @@
     color:#fff !important;
 
 }
+.active-li{
+    padding-right:10px;
+    background-color:#a48234 !important;
+  
+}
 
 .widget{
     border:1px #cfcfcf solid;
@@ -138,3 +143,4 @@ i{
     background-color: #a48234;
     border-radius: 10px;
 }
+
