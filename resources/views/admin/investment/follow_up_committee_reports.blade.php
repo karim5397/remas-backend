@@ -54,6 +54,7 @@
                          <th class="whitespace-nowrap">#</th>
                          <th class="whitespace-nowrap">Title</th>
                          <th class="whitespace-nowrap">Year</th>
+                         <th class="whitespace-nowrap">Number Of Download</th>
                          <th class="whitespace-nowrap">Action</th>
                      </tr>
                  </thead>
@@ -64,6 +65,7 @@
                                  <td>{{$follow_ups->firstItem()+$loop->index}})</td>
                                  <td>{{$follow_up->title}}</td>
                                  <td>{{$follow_up->year}}</td>
+                                 <td>{{$follow_up->count}}</td>
                                  <td>
                                      <div class="flex items-center">
                                          <form action="{{route('follow_up.destroy' , $follow_up->id)}}" method="POST" class="ml-2">

@@ -52,110 +52,139 @@
                         </h2>
                     </div>
                     <div class="grid grid-cols-12 gap-6 mt-5">
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i class="fa-regular fa-envelope fa-2x"></i> 
+                                        <i class="fa-regular fa-envelope fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Client Messages</span>
+ 
                                     </div>
                                     <div class="text-3xl font-medium leading-8 mt-6">{{App\Models\Message::count()}}</div>
-                                    <div class="text-base text-slate-500 mt-1">Client Messages</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+                    
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i data-lucide="credit-card" class="report-box__icon text-pending"></i> 
-                                    </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{App\Models\News::count()}}</div>
-                                    <div class="text-base text-slate-500 mt-1">Total News</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                            <div class="report-box zoom-in">
-                                <div class="box p-5">
-                                    <div class="flex">
-                                        <i data-lucide="monitor" class="report-box__icon text-warning"></i> 
-                                    </div>
-                                    <div class="text-3xl font-medium leading-8 mt-6">{{App\Models\Product::count()}}</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Products</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
-                            <div class="report-box zoom-in">
-                                <div class="box p-5">
-                                    <div class="flex">
-                                        <i data-lucide="user" class="report-box__icon text-success"></i> 
+                                        <i class="fas fa-user fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Total Users</span>
                                     </div>
                                     <div class="text-3xl font-medium leading-8 mt-6">{{App\Models\User::count()}}</div>
-                                    <div class="text-base text-slate-500 mt-1">Total Users</div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid grid-cols-12 gap-6 mt-5">
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i class="fa-solid fa-chart-line fa-2x"></i> 
+                                        <i class="fa-solid fa-chart-line fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Governance Reports</span>
+                                    </div>
+                                    <div class=" leading-8 mt-6">
+                                        <p>Total Files = <strong>{{App\Models\Government::select('id')->count()}}</strong></p> 
+                                        <p>Total User Download = <strong>{{App\Models\Government::where('count' , '>' ,0)->sum('count')}}</strong></p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                            <div class="report-box zoom-in">
+                                <div class="box p-5">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-chart-line fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Follow up Committee Reports</span>
+                                    </div>
+                                    <div class=" leading-8 mt-6">
+                                        <p>Total Files = <strong>{{App\Models\FollowUpReport::select('id')->count()}}</strong></p> 
+                                        <p>Total User Download = <strong>{{App\Models\FollowUpReport::where('count' , '>' ,0)->sum('count')}}</strong></p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                            <div class="report-box zoom-in">
+                                <div class="box p-5">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-chart-line fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Financial Reports</span>
                                     </div>
                                     <div class=" leading-8 mt-6">
                                         <p>Total Files = <strong>{{App\Models\Finance::select('id')->count()}}</strong></p> 
                                         <p>Total User Download = <strong>{{App\Models\Finance::where('count' , '>' ,0)->sum('count')}}</strong></p> 
                                     </div>
-                                    <div class="text-base text-slate-500 mt-1">Financial Reports</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i class="fa-solid fa-chart-line fa-2x"></i> 
+                                        <i class="fa-solid fa-chart-line fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Disclosure Reports</span> 
                                     </div>
                                     <div class=" leading-8 mt-6">
                                         <p>Total Files = <strong>{{App\Models\Disclosure::select('id')->count()}}</strong></p> 
                                         <p>Total User Download = <strong>{{App\Models\Disclosure::where('count' , '>' ,0)->sum('count')}}</strong></p> 
                                     </div>
-                                    <div class="text-base text-slate-500 mt-1">Disclosure Reports</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i class="fa-solid fa-chart-line fa-2x"></i> 
+                                        <i class="fa-solid fa-chart-line fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Board Of Director</span>  
                                     </div>
                                     <div class=" leading-8 mt-6">
                                         <p>Total Files = <strong>{{App\Models\Director::select('id')->count()}}</strong></p> 
                                         <p>Total User Download = <strong>{{App\Models\Director::where('count' , '>' ,0)->sum('count')}}</strong></p> 
                                     </div>
-                                    <div class="text-base text-slate-500 mt-1">Board Of Director</div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-12 sm:col-span-6 xl:col-span-3 intro-y">
+
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
                             <div class="report-box zoom-in">
                                 <div class="box p-5">
                                     <div class="flex">
-                                        <i class="fa-solid fa-chart-line fa-2x"></i> 
+                                        <i class="fa-solid fa-chart-line fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Remedies</span>  
+    
+                                    </div>
+                                    <div class=" leading-8 mt-6">
+                                        <p>Total Files = <strong>{{App\Models\Remedies::select('id')->count()}}</strong></p> 
+                                        <p>Total User Download = <strong>{{App\Models\Remedies::where('count' , '>' ,0)->sum('count')}}</strong></p> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-span-12 sm:col-span-6 xl:col-span-4 intro-y">
+                            <div class="report-box zoom-in">
+                                <div class="box p-5">
+                                    <div class="flex">
+                                        <i class="fa-solid fa-chart-line fa-2x"></i>
+                                        <span class="text-base text-slate-700 mt-1 px-2" style="font-size: 20px">Assembly Decision</span>  
+    
                                     </div>
                                     <div class=" leading-8 mt-6">
                                         <p>Total Files = <strong>{{App\Models\Decision::select('id')->count()}}</strong></p> 
                                         <p>Total User Download = <strong>{{App\Models\Decision::where('count' , '>' ,0)->sum('count')}}</strong></p> 
                                     </div>
-                                    <div class="text-base text-slate-500 mt-1">Assembly Decision</div>
                                 </div>
                             </div>
                         </div>
-                    
                     </div>
+                    
                 </div>
                 <!-- END: General Report -->
             </div>

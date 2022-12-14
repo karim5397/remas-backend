@@ -54,6 +54,7 @@
                          <th class="whitespace-nowrap">#</th>
                          <th class="whitespace-nowrap">Title</th>
                          <th class="whitespace-nowrap">Year</th>
+                         <th class="whitespace-nowrap">Number Of Download</th>
                          <th class="whitespace-nowrap">Action</th>
                      </tr>
                  </thead>
@@ -64,6 +65,7 @@
                                  <td>{{$governments->firstItem()+$loop->index}})</td>
                                  <td>{{$government->title}}</td>
                                  <td>{{$government->year}}</td>
+                                 <td>{{$government->count}}</td>
                                  <td>
                                      <div class="flex items-center">
                                          <form action="{{route('government.destroy' , $government->id)}}" method="POST" class="ml-2">
