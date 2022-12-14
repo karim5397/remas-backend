@@ -28,7 +28,7 @@
                     <div class="col-md-12 mb-5">
                         <h3 class="direction">اولاً : التشكيل الحالى لأعضاء مجلس الإداره</h3>
                     </div>
-                    <table class="table table-bordered direction">
+                    <table class="table table-bordered table-striped table-hover direction">
                         <thead  style="background-color:#353535 !important; color:#fff !important;">
                             <tr class="text-center">
                                 <th>الاسم</th>
@@ -53,7 +53,7 @@
                     <div class="col-md-12 mb-5">
                         <h3 class="direction">ثانياً : المديرين التنفذين الداخليين بالشركة</h3>
                     </div>
-                   <table class="table table-bordered direction">
+                   <table class="table table-bordered table-striped table-hover direction">
                         <thead  style="background-color:#353535 !important; color:#fff !important;">
                             <tr class="text-center">
                                 <th>الاسم</th>
