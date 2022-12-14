@@ -209,7 +209,6 @@
                                 <th class="whitespace-nowrap">Email </th>
                                 <th class="whitespace-nowrap">Company Name </th>
                                 <th class="whitespace-nowrap">Phone </th>
-                                <th class="whitespace-nowrap">Message</th>
                                 <th class="whitespace-nowrap">Actions</th>
                             </tr>
                         </thead>
@@ -222,13 +221,9 @@
                                         <td>{{$message->email}}</td>
                                         <td>{{$message->company_name}}</td>
                                         <td>{{$message->phone}}</td>
-                                        @if ($message->message != null)
-                                            <td>{{$message->message}}</td>
-                                        @else
-                                            <td><p class="text-danger">no message</p></td>
-                                        @endif
                                         <td>
                                             <div class="flex items-center">
+                                                <a href="javascript:void(0);" data-tw-toggle="modal" data-tw-target="#show-message-{{$message->id}}"  title="{{__('Show')}}"  class="btn btn-secondary"><i class="fa fa-eye"></i></a>
                                                 <form action="{{route('delete.message' , $message->id)}}" method="POST" class="ml-2">
                                                     @csrf
                                                     @method('DELETE')
@@ -237,6 +232,55 @@
                                             </div>
                                         </td>
                                     </tr>
+                                     <!-- BEGIN: Add Modal Content -->
+                                    <div id="show-message-{{$message->id}}" class="modal" tabindex="-1" aria-hidden="true">
+                                        <div class="modal-dialog modal-xl">
+                                            <div class="modal-content">
+                                                <div class="modal-body p-10 text-center">
+                                                    <div class="preview">
+                                                        <h2 class="text-lg font-medium mr-auto pb-4">
+                                                            Show Client Message
+                                                        </h2>
+
+                                                        <div class="grid grid-cols-12 gap-6 mt-5">
+                                                            <div class="sm:col-span-12 md:col-span-6 xl:col-span-6">
+                                                                <div class="show-content text-left">
+                                                                    <span><strong>Name : </strong> {{$message->name}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sm:col-span-12 md:col-span-6 xl:col-span-6">
+                                                                <div class="show-content text-left">
+                                                                    <span><strong>Email : </strong> {{$message->email}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sm:col-span-12 md:col-span-6 xl:col-span-6">
+                                                                <div class="show-content text-left">
+                                                                    <span><strong>Company Name : </strong> {{$message->company_name}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sm:col-span-12 md:col-span-6 xl:col-span-6">
+                                                                <div class="show-content text-left">
+                                                                    <span><strong>Phone : </strong> {{$message->phone}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sm:col-span-12 md:col-span-6 xl:col-span-6">
+                                                                <div class="show-content text-left">
+                                                                    <span><strong>Subject : </strong> {{$message->subject}}</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sm:col-span-12 md:col-span-6 xl:col-span-6">
+                                                                <div class="show-content text-left">
+                                                                    <span><strong>Message : </strong>{{$message->message == '' ? 'no message send' : $message->message }}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END: Add Modal Content -->
                                 @endforeach
                                 
                             @else
@@ -257,5 +301,7 @@
         </div>
     </div>
 </div>
+
+   
 @endsection
 

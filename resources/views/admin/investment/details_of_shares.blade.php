@@ -68,7 +68,8 @@
                                  <td>{{$share->followed_law}}</td>
                                  <td>{{$share->purpose}}</td>
                                  <td>{{$share->version_number}}</td>
-                                 <td>{{$share->par_value}}</td>                                 <td>
+                                 <td>{{$share->par_value}}</td>
+                                <td>
                                      <div class="flex items-center">
                                         <a href="javascript:;"  title="{{__('Edit')}}"  data-placement='button' class="btn btn-secondary" data-tw-toggle="modal" data-tw-target="#edit-shares-{{$share->id}}"><i class="fa fa-pen"></i></a>
                                      </div>
