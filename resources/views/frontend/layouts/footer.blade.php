@@ -12,8 +12,8 @@
                                 قدم لوكلائنا سعر منتج تنافسي مع تصميمات فريدة تميزنا عن المنافسة.
                             </p>
                             <ul class="d-flex list-unstyled  social-icons">
-                                <li><a href="{{get_setting('facebook_url')}}" class="social-links"><i class="fa-brands fa-facebook"></i></a></li>
-                                <li><a href="{{get_setting('instagram_url')}}" class="social-links"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="{{get_setting('facebook_url')}}" target="_blank" class="social-links"><i class="fa-brands fa-facebook"></i></a></li>
+                                <li><a href="{{get_setting('instagram_url')}}" target="_blank" class="social-links"><i class="fa-brands fa-instagram"></i></a></li>
                             </ul>
 
                          </div>

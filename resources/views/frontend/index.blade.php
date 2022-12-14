@@ -45,7 +45,7 @@
                         <div>
                             <h3>{{$about->title}}</h3>
                             <p>{{$about->description}}</p>
-                            <a href="#" class="btn btn-primary" style="border:none !important;">اقرأ المزيد</a>              
+                            <a href="{{route('about')}}" class="btn btn-primary" style="border:none !important;">اقرأ المزيد</a>              
                         </div>
                     </div><!--end col-->
 
