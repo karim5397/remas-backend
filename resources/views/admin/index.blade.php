@@ -209,7 +209,6 @@
                                 <th class="whitespace-nowrap">Email </th>
                                 <th class="whitespace-nowrap">Company Name </th>
                                 <th class="whitespace-nowrap">Phone </th>
-                                <th class="whitespace-nowrap">Subject</th>
                                 <th class="whitespace-nowrap">Message</th>
                                 <th class="whitespace-nowrap">Actions</th>
                             </tr>
@@ -223,7 +222,6 @@
                                         <td>{{$message->email}}</td>
                                         <td>{{$message->company_name}}</td>
                                         <td>{{$message->phone}}</td>
-                                        <td>{{$message->subject}}</td>
                                         @if ($message->message != null)
                                             <td>{{$message->message}}</td>
                                         @else

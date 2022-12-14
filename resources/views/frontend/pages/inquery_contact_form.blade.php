@@ -30,7 +30,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">الأسم <span class="text-danger">*</span></label>
-                                        <input name="name" id="name" type="text" class="form-control">
+                                        <input name="name" id="name" type="text" class="form-control" value="{{old('name')}}">
                                         @error('name') <p class="text-danger">{{$message}}</p> @enderror
                                     </div>
                                 </div>
@@ -38,7 +38,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">البريد الإلكتروني <span class="text-danger">*</span></label>
-                                        <input name="email" id="email" type="email" class="form-control">
+                                        <input name="email" id="email" type="email" class="form-control" value="{{old('email')}}">
                                         @error('email') <p class="text-danger">{{$message}}</p> @enderror
 
                                     </div> 
@@ -47,7 +47,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">الهاتف <span class="text-danger">*</span></label>
-                                        <input name="phone" id="phone" type="text" class="form-control">
+                                        <input name="phone" id="phone" type="text" class="form-control" value="{{old('phone')}}">
                                         @error('phone') <p class="text-danger">{{$message}}</p> @enderror
 
                                     </div>
@@ -56,7 +56,7 @@
                                 <div class="col-md-6">
                                     <div class="mb-3">
                                         <label class="form-label">إسم الشركة<span class="text-danger">*</span></label>
-                                        <input name="company_name" id="name" type="text" class="form-control">
+                                        <input name="company_name" id="name" type="text" class="form-control" value="{{old('company_name')}}">
                                         @error('company_name') <p class="text-danger">{{$message}}</p> @enderror
 
                                     </div>
@@ -65,7 +65,7 @@
                                 <div class="col-12">
                                     <div class="mb-3">
                                         <label class="form-label">الموضوع<span class="text-danger">*</span></label>
-                                        <input name="subject" id="subject" class="form-control" >
+                                        <input name="subject" id="subject" class="form-control"  value="{{old('subject')}}">
                                         @error('subject') <p class="text-danger">{{$message}}</p> @enderror
 
                                     </div>
@@ -74,7 +74,7 @@
                                 <div class="col-12">
                                     <div class="mb-3">
                                         <label class="form-label">الرسالة </label>
-                                        <textarea name="message" id="comments" rows="4" class="form-control"></textarea>
+                                        <textarea name="message" id="comments" rows="4" class="form-control">{{old('message')}}</textarea>
                                         @error('message') <p class="text-danger">{{$message}}</p> @enderror
 
                                     </div>
@@ -83,6 +83,8 @@
                                     <div class="mb-3">
                                         <div class="g-recaptcha" data-sitekey="6LfXgWAjAAAAADT2c4ps2zoaw9W9Y26St66KbtUx"></div>
                                     </div>
+                                    @error('g-recaptcha-response') <p class="text-danger">{{$message}}</p> @enderror
+
                                 </div>
                             </div>
                             <div class="row">

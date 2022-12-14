@@ -57,6 +57,7 @@ class IndexController extends Controller
             'phone' => 'required|string',
             'subject' => 'required|string',
             'message' => 'nullable|string',
+            'g-recaptcha-response' => 'required',
         ],
         [
             'name.required' => 'ادخل الاسم',
@@ -65,6 +66,7 @@ class IndexController extends Controller
             'phone.required' => 'ادخل الهاتف',
             'subject.required' => 'ادخل اسم الموضوع',
             'message.sometimes' => 'ادخل الرساله',
+            'g-recaptcha-response.required'=>'This field is required',
         ]);
         $data=$request->all();
         $message=Message::create($data);
