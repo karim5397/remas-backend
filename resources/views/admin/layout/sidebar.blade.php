@@ -158,61 +158,61 @@
                 <li>
                     <a href="{{route('share.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Details of Shares </div>
+                        <div class="side-menu__title"> بيانات الاسهم </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('structure.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Board Structure </div>
+                        <div class="side-menu__title"> تشكيل مجلس الإدارة </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('director.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Board of Directors </div>
+                        <div class="side-menu__title"> قرارات مجلس الإدارة </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('decision.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> General Assembly Decisions </div>
+                        <div class="side-menu__title"> قرارات الجمعية العمومية </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('finance.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Financial Reports </div>
+                        <div class="side-menu__title"> تقارير القوائم المالية </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('disclosure.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Disclosures Reports </div>
+                        <div class="side-menu__title"> تقارير الإفصاح </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('government.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Governances Reports </div>
+                        <div class="side-menu__title"> تقارير الحوكمة </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('follow_up.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Follow-Up Committee Reports </div>
+                        <div class="side-menu__title"> تقاير لجنة المراجعة </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('remedies.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Remedies </div>
+                        <div class="side-menu__title"> أستدراكات </div>
                     </a>
                 </li>
                 <li>
                     <a href="{{route('advertisement.show')}}" class="side-menu">
                         <div class="side-menu__icon"> <i data-lucide="activity"></i> </div>
-                        <div class="side-menu__title"> Advertisements </div>
+                        <div class="side-menu__title"> الأجندة / الأعلانات </div>
                     </a>
                 </li>
             </ul>

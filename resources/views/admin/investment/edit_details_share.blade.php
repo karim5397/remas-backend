@@ -14,7 +14,7 @@
                             
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Founding Date * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">تاريخ التأسيس * </label>
                                     <input type="text" name="founding_date"  value="{{$share->founding_date}}" class="datepicker form-control w-100 block mx-auto" data-single-mode="true" > 
 
                                     {{-- <input type="text" class="form-control" name="founding_date"  value="{{$share->founding_date}}" > --}}
@@ -26,7 +26,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Followed Law * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">القانون الذى تتبعة الشركة * </label>
                                     <input type="text" class="form-control" name="followed_law"  value="{{$share->followed_law}}" >
                                     @error('followed_law')
                                         <p class="text-danger">{{$message}}</p>
@@ -36,7 +36,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Purpose * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">الغرض * </label>
                                     <input type="text" class="form-control" name="purpose"  value="{{$share->purpose}}" >
                                     @error('purpose')
                                         <p class="text-danger">{{$message}}</p>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Company Branches * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">فروع الشركة * </label>
                                     <input type="text" class="form-control" name="company_branches"  value="{{$share->company_branches}}" >
                                     @error('company_branches')
                                         <p class="text-danger">{{$message}}</p>
@@ -56,7 +56,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Stock market date * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">تاريخ القيد بالبورصة * </label>
                                     <input type="text" class="form-control" name="stock_market_date"  value="{{$share->stock_market_date}}" >
                                     @error('stock_market_date')
                                         <p class="text-danger">{{$message}}</p>
@@ -66,7 +66,7 @@
                                 </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Version number * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">عدد الاصدارات * </label>
                                     <input type="text" class="form-control" name="version_number"  value="{{$share->version_number}}" >
                                     @error('version_number')
                                         <p class="text-danger">{{$message}}</p>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Par value * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">القيمة الاسمية * </label>
                                     <input type="text" class="form-control" name="par_value"  value="{{$share->par_value}}" >
                                     @error('par_value')
                                         <p class="text-danger">{{$message}}</p>
@@ -86,7 +86,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Number Shares * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">عدد الأسهم المقيدة * </label>
                                     <input type="text" class="form-control" name="number_shares"  value="{{$share->number_shares}}" >
                                     @error('number_shares')
                                         <p class="text-danger">{{$message}}</p>
@@ -96,7 +96,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Issued Capital * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">رأس المال المدفوع * </label>
                                     <input type="text" class="form-control" name="issued_capital"  value="{{$share->issued_capital}}" >
                                     @error('issued_capital')
                                         <p class="text-danger">{{$message}}</p>
@@ -106,7 +106,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Authorized Capital * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">رأس المال المرخص بة * </label>
                                     <input type="text" class="form-control" name="authorized_capital"  value="{{$share->authorized_capital}}" >
                                     @error('authorized_capital')
                                         <p class="text-danger">{{$message}}</p>
@@ -116,7 +116,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Financial Year * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">موعد بدأ السنة المالية * </label>
                                     <input type="text" class="form-control" name="financial_year"  value="{{$share->financial_year}}" >
                                     @error('financial_year')
                                         <p class="text-danger">{{$message}}</p>
@@ -126,7 +126,7 @@
                             </div>
                             <div class="xl:col-span-6 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">External Auditor * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">أسم مراقب الحسابات * </label>
                                     <input type="text" class="form-control" name="external_auditor"  value="{{$share->external_auditor}}" >
                                     @error('external_auditor')
                                         <p class="text-danger">{{$message}}</p>
@@ -136,7 +136,7 @@
                             </div>
                             <div class="xl:col-span-12 md:col-span-12 sm:col-span-12">
                                 <div class="input-form mt-5">
-                                    <label  class="form-label w-full flex flex-col sm:flex-row">Vision Mission * </label>
+                                    <label  class="form-label w-full flex flex-col sm:flex-row">هدف و رؤية الشركة * </label>
                                     <textarea  class="form-control tinymce-editor" name="vision_mission">{{$share->vision_mission}}</textarea>
                                 </div>
                                 @error('vision_mission')
