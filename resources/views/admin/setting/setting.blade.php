@@ -53,8 +53,27 @@
                         <!-- BEGIN: Validation Form -->
                         <form action="{{route('setting.update',$setting->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
-                            @method('PATCH')
+                            
                             <div class="grid grid-cols-12 mt-5">
+                                <div class="col-span-6 px-2 my-5">
+                                    <div class="input-form ">
+                                        <label  class="form-label w-full flex flex-col sm:flex-row">Footer Email * </label>
+                                        <input type="text" class="form-control" name="email"  value="{{$setting->email}}">
+                                        @error('email')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-span-6 px-2 my-5">
+                                    <div class="input-form ">
+                                        <label  class="form-label w-full flex flex-col sm:flex-row">Footer Phone * </label>
+                                        <input type="text" class="form-control" name="phone"  value="{{$setting->phone}}">
+                                        @error('phone')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                
                                 <div class="col-span-6 px-2 my-5">
                                     <div class="input-form ">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Page Title * </label>
@@ -82,11 +101,20 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="col-span-12 px-2 mt-2">
+                                <div class="col-span-6 px-2 mt-2">
                                     <div class="input-form">
                                         <label  class="form-label w-full flex flex-col sm:flex-row">Meta Description * </label>
                                         <textarea  class="form-control tinymce-editor" name="meta_description">{{$setting->meta_description}}</textarea>
                                         @error('meta_description')
+                                            <p class="text-danger">{{$message}}</p>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-span-6 px-2 my-5">
+                                    <div class="input-form ">
+                                        <label  class="form-label w-full flex flex-col sm:flex-row">Footer Description * </label>
+                                        <textarea  class="form-control tinymce-editor" name="footer_desc">{{$setting->footer_desc}}</textarea>
+                                        @error('footer_desc')
                                             <p class="text-danger">{{$message}}</p>
                                         @enderror
                                     </div>

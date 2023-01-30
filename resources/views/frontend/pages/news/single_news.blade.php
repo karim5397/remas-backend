@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="mt-5">
-                    <p class="text-muted">{!!$news->description!!}</p>
+                    <p class="text-muted">{{strip_tags($news->description)}}</p>
                     
                 </div>
 
@@ -48,7 +48,7 @@
                     
                                         <div class="card-body content">
                                             <a href="#" class="h5 title text-dark d-block mb-0">{{$news->title}}</a>
-                                            <p class="text-muted mt-2 mb-2" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{!!$news->description!!}</p>
+                                            <p class="text-muted mt-2 mb-2" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">{{strip_tags($news->description)}}</p>
                                             <a href="{{route('news.details' , $news->id)}}" class="link text-dark">اقرأ المزيد <i class="uil uil-arrow-right align-middle"></i></a>
                                         </div>
                                     </div>

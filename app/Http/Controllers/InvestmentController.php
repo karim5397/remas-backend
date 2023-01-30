@@ -29,7 +29,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required|mimes:pdf|file|max:5000',
+            'file' => 'required|mimes:pdf|file|max:20000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -81,7 +81,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required|mimes:pdf|file|max:5000',
+            'file' => 'required|mimes:pdf|file|max:20000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -132,7 +132,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required|mimes:pdf|file|max:5000',
+            'file' => 'required|mimes:pdf|file|max:20000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -183,7 +183,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required|mimes:pdf|file|max:5000',
+            'file' => 'required|mimes:pdf|file|max:20000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -344,7 +344,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required|mimes:pdf|file|max:5000',
+            'file' => 'required|mimes:pdf|file|max:20000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -395,7 +395,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required|mimes:pdf|file|max:5000',
+            'file' => 'required|mimes:pdf|file|max:20000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -446,7 +446,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required|mimes:pdf|file|max:5000',
+            'file' => 'required|mimes:pdf|file|max:20000',
         ],
         [
             "title.required" => "Please enter  title",
@@ -497,7 +497,7 @@ class InvestmentController extends Controller
         $this->validate($request,[
             'title' => 'required|string|max:255',
             'year' => 'required',
-            'file' => 'required|mimes:pdf|file|max:5000',
+            'file' => 'required|mimes:pdf|file|max:20000',
         ],
         [
             "title.required" => "Please enter  title",

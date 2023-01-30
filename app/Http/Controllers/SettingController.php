@@ -18,6 +18,9 @@ class SettingController extends Controller
     {
         $setting=Setting::first();
         $this->validate($request,[
+            'email' => 'required|string',
+            'phone' => 'required|string',
+            'footer_desc' => 'required|string',
             'page_title' => 'required|string',
             'news_page_title' => 'required|string',
             'investment_page_title' => 'required|string',
@@ -31,6 +34,9 @@ class SettingController extends Controller
             'linkedin_url' => 'sometimes|nullable|string',
         ],
         [
+            "email.required" => "Please enter email",
+            "phone.required" => "Please enter phone",
+            "footer_desc.required" => "Please enter footer description",
             "page_title.required" => "Please enter home title",
             "news_page_title.required" => "Please enter news page title",
             "investment_page_title.required" => "Please enter investment page title",

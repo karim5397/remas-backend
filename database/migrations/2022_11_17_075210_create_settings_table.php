@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('email');
+            $table->string('phone');
+            $table->longText('footer_desc');
             $table->string('page_title');
             $table->longText('meta_description')->nullable();
             $table->string('meta_auth')->nullable();

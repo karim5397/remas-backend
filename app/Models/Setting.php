@@ -9,6 +9,9 @@ class Setting extends Model
 {
     use HasFactory;
     protected $fillable=[
+        'email', 
+        'phone', 
+        'footer_desc', 
         'page_title', 
         'meta_description',
         'meta_auth',

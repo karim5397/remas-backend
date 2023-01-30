@@ -32,7 +32,7 @@
                 <div class="col-lg-7 col-md-6 mt-4 pt-2 mt-sm-0 pt-sm-0">
                     <div class="section-title ms-lg-5">
                         <h4 class="title mb-3">{{$about->title}}</h4>
-                        <p class="text-muted">{!!$about->description!!}</p>
+                        <p class="text-muted">{{strip_tags($about->description)}}</p>
                                             
                     </div>
                 </div><!--end col-->
@@ -47,7 +47,7 @@
                         <div class="content my-3 border-bottom">
                             <h4 href="#" class="text-dark">مهمتنا</h4>
 
-                            <p class="text-muted mt-3">{!!$about->mission!!}</p>
+                            <p class="text-muted mt-3">{{strip_tags($about->mission)}}</p>
                         </div>
                     </div>
                 </div><!--end col-->
@@ -59,7 +59,7 @@
                         <div class="content my-3 border-bottom">
                             <h4 href="#" class="text-dark">رؤيتنا</h4>
 
-                            <p class="text-muted mt-3">{!!$about->vision!!}</p>
+                            <p class="text-muted mt-3">{{strip_tags($about->vision)}}</p>
                         </div>
                     </div>
                 </div><!--end col-->

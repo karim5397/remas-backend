@@ -8,9 +8,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0  ">
                             <img src="{{asset(get_setting('logo'))}}" style="max-width: 100%;" alt="" class="mb-3">
-                            <p> قم بتحسين نمط حياة عملائنا وتزويدهم بتجربة معيشية أفضل داخل منازلهم من خلال تزويدهم بمنتجات عالية الجودة بتصاميم إبداعية وجذابة من الناحية الجمالية تناسب كل الأذواق التي يتم تقديمها بطريقة أخلاقية وصديقة للبيئة.
-                                قدم لوكلائنا سعر منتج تنافسي مع تصميمات فريدة تميزنا عن المنافسة.
-                            </p>
+                            <p>{{strip_tags(get_setting('footer_desc'))}}</p>
                             <ul class="d-flex list-unstyled  social-icons">
                                 <li><a href="{{get_setting('facebook_url')}}" target="_blank" class="social-links"><i class="fa-brands fa-facebook"></i></a></li>
                                 <li><a href="{{get_setting('instagram_url')}}" target="_blank" class="social-links"><i class="fa-brands fa-instagram"></i></a></li>
@@ -23,11 +21,11 @@
                              <h6 class="footer-head">إتصل بنا</h6>
                              <div>
                                  <div class="pt-3">
-                                     <span><strong>البريد الإلكترونى : </strong>info[at]ceramicaremas.com</span>
+                                     <span><strong>البريد الإلكترونى : </strong>{{get_setting('email')}}</span>
                                  </div>
                                  <div class="pt-3 d-flex">
                                     <strong> الهاتف : </strong>
-                                    <p class="px-2" style="direction: ltr;"> (+02) 226 965 1 </p>
+                                    <p class="px-2" style="direction: ltr;"> {{get_setting('phone')}}</p>
                                 </div>
                                  <div class="pt-3">
                                     <ul class="d-flex flex-column list-unstyled gap-4">
